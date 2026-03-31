@@ -13,15 +13,15 @@ export function ServicesSection({ services }) {
     <Section id="services" title={services.title}>
       <ul className="service-accordion" role="list">
         {services.items.map((item, index) => {
-          const service = typeof item === 'string' ? { title: item, text: '' } : item;
+          const service =
+            typeof item === 'string' ? { title: item, text: '' } : item;
+
           const isOpen = openIndex === index;
 
           return (
             <li
-              key={service.title}
-              className={`service-accordion__item reveal ${isOpen ? 'is-open' : ''}`.trim()}
-              data-reveal
-              style={{ '--reveal-delay': `${index * 60}ms` }}
+              key={`${service.title}-${index}`}
+              className={`service-accordion__item ${isOpen ? 'is-open' : ''}`}
             >
               <button
                 type="button"
@@ -31,10 +31,16 @@ export function ServicesSection({ services }) {
                 aria-controls={`service-panel-${index}`}
               >
                 <span className="service-accordion__heading-wrap">
-                  <span className="service-accordion__index">{String(index + 1).padStart(2, '0')}</span>
+                  <span className="service-accordion__index">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
                   <span className="service-accordion__title">{service.title}</span>
                 </span>
-                <span className={`service-accordion__icon ${isOpen ? 'is-open' : ''}`} aria-hidden="true">
+
+                <span
+                  className={`service-accordion__icon ${isOpen ? 'is-open' : ''}`}
+                  aria-hidden="true"
+                >
                   <span className="service-accordion__icon-line service-accordion__icon-line--h" />
                   <span className="service-accordion__icon-line service-accordion__icon-line--v" />
                 </span>
@@ -43,10 +49,9 @@ export function ServicesSection({ services }) {
               <div
                 id={`service-panel-${index}`}
                 className={`service-accordion__body ${isOpen ? 'is-open' : ''}`}
-                aria-hidden={!isOpen}
               >
                 <div className="service-accordion__body-inner">
-                  <p>{service.text}</p>
+                  {service.text ? <p>{service.text}</p> : null}
                 </div>
               </div>
             </li>
