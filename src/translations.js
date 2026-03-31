@@ -95,12 +95,12 @@ export const translations = {
       badge: 'Premium Wykończenia Wnętrz',
       title: 'LUX MIKROCEMENT',
       subtitle:
-        'Bezspoinowe, eleganckie powierzchnie tworzone dla wymagających domów, butikowych hoteli i prestiżowych wnętrz komercyjnych w Polsce.',
+        'Bezspoinowe, eleganckie powierzchnie: mikrocement Warszawa i mikrocement Polska dla wymagających domów, butikowych hoteli oraz prestiżowych wnętrz komercyjnych.',
       primaryCta: 'Umów Konsultację',
       secondaryCta: 'Poznaj Usługi'
     },
     why: {
-      title: 'Dlaczego Mikrocement',
+      title: 'Mikrocement Warszawa i Polska — dlaczego warto',
       intro:
         'Mikrocement to nowoczesne, minimalistyczne wykończenie łączące estetykę, trwałość i swobodę projektowania.',
       items: [
@@ -119,10 +119,10 @@ export const translations = {
       ]
     },
     services: {
-      title: 'Usługi',
+      title: 'Mikrocement podłogi, ściany i łazienka — usługi',
       items: [
-        'Mikrocement na podłogach i ścianach',
-        'Łazienki i strefy mokre',
+        'Mikrocement podłogi i mikrocement ściany',
+        'Mikrocement łazienka i strefy mokre',
         'Schody i elementy na zamówienie',
         'Wnętrza komercyjne i hotelowe',
         'Konsultacje projektowe oraz dobór próbek'
@@ -150,8 +150,8 @@ export const translations = {
       ]
     },
     coverage: {
-      title: 'Zasięg w Polsce',
-      text: 'Realizujemy projekty na terenie całej Polski, w tym w Warszawie, Krakowie, Wrocławiu, Gdańsku, Poznaniu oraz okolicznych regionach.'
+      title: 'Mikrocement Polska — zasięg realizacji',
+      text: 'Realizujemy projekty mikrocementowe na terenie całej Polski, w tym mikrocement Warszawa, Kraków, Wrocław, Gdańsk, Poznań oraz okoliczne regiony.'
     },
     contact: {
       title: 'Stwórzmy Coś Wyjątkowego',
