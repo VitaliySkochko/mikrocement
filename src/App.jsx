@@ -18,6 +18,7 @@ export default function App() {
           <a href="#hero">{t.nav.hero}</a>
           <a href="#why">{t.nav.why}</a>
           <a href="#services">{t.nav.services}</a>
+          <a href="#gallery">{t.nav.gallery}</a>
           <a href="#approach">{t.nav.approach}</a>
           <a href="#coverage">{t.nav.coverage}</a>
           <a href="#contact">{t.nav.contact}</a>
@@ -56,6 +57,22 @@ export default function App() {
               <li key={item}>{item}</li>
             ))}
           </ul>
+        </Section>
+
+        <Section id="gallery" title={t.gallery.title} intro={t.gallery.intro}>
+          <div className="gallery-grid">
+            {t.gallery.items.map((item) => (
+              <article key={item.title} className="gallery-card">
+                <div className="gallery-image-wrap">
+                  <img src={item.image} alt={item.title} loading="lazy" />
+                </div>
+                <div className="gallery-copy">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </Section>
 
         <Section id="approach" title={t.approach.title}>

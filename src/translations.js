@@ -6,6 +6,7 @@ export const translations = {
       hero: 'Home',
       why: 'Why Microcement',
       services: 'Services',
+      gallery: 'Gallery',
       approach: 'Our Approach',
       coverage: 'Coverage',
       contact: 'Contact'
@@ -68,6 +69,30 @@ export const translations = {
         }
       ]
     },
+    gallery: {
+      title: 'Project Gallery',
+      intro: 'A curated look at premium interiors finished with artisan microcement craftsmanship.',
+      items: [
+        {
+          title: 'Microcement Floors',
+          description: 'Seamless floor finishes with refined texture and long-term durability.',
+          image:
+            'https://images.unsplash.com/photo-1617104551722-3b2d5136643b?auto=format&fit=crop&w=1200&q=80'
+        },
+        {
+          title: 'Microcement Bathrooms',
+          description: 'Water-resistant, minimalist bathroom surfaces with a spa-like aesthetic.',
+          image:
+            'https://images.unsplash.com/photo-1600210492486-724fe5c67fb3?auto=format&fit=crop&w=1200&q=80'
+        },
+        {
+          title: 'Modern Luxury Interiors',
+          description: 'Architectural spaces where premium materials meet contemporary elegance.',
+          image:
+            'https://images.unsplash.com/photo-1616594039964-3d0bb886f1ba?auto=format&fit=crop&w=1200&q=80'
+        }
+      ]
+    },
     coverage: {
       title: 'Coverage in Poland',
       text: 'Based in Poland, we deliver projects in major cities including Warsaw, Kraków, Wrocław, Gdańsk, Poznań, and surrounding regions.'
@@ -87,6 +112,7 @@ export const translations = {
       hero: 'Start',
       why: 'Dlaczego Mikrocement',
       services: 'Usługi',
+      gallery: 'Galeria',
       approach: 'Nasze Podejście',
       coverage: 'Zasięg',
       contact: 'Kontakt'
@@ -146,6 +172,30 @@ export const translations = {
         {
           title: '4. Zabezpieczenie i Odbiór',
           text: 'Stosujemy premium sealery i przekazujemy zasady pielęgnacji na lata.'
+        }
+      ]
+    },
+    gallery: {
+      title: 'Galeria Realizacji',
+      intro: 'Wybrane kadry premium wnętrz z wykończeniem wykonanym w technologii mikrocementu.',
+      items: [
+        {
+          title: 'Mikrocement Podłogi',
+          description: 'Bezspoinowe podłogi o wyrafinowanej strukturze i wysokiej trwałości.',
+          image:
+            'https://images.unsplash.com/photo-1617104551722-3b2d5136643b?auto=format&fit=crop&w=1200&q=80'
+        },
+        {
+          title: 'Mikrocement Łazienki',
+          description: 'Minimalistyczne, wodoodporne powierzchnie łazienkowe o luksusowym charakterze.',
+          image:
+            'https://images.unsplash.com/photo-1600210492486-724fe5c67fb3?auto=format&fit=crop&w=1200&q=80'
+        },
+        {
+          title: 'Nowoczesne Luksusowe Wnętrza',
+          description: 'Prestiżowe przestrzenie łączące nowoczesną architekturę i eleganckie detale.',
+          image:
+            'https://images.unsplash.com/photo-1616594039964-3d0bb886f1ba?auto=format&fit=crop&w=1200&q=80'
         }
       ]
     },
