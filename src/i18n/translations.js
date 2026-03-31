@@ -41,11 +41,26 @@ export const translations = {
     services: {
       title: 'Services',
       items: [
-        'Microcement floors and walls',
-        'Bathrooms and wet zones',
-        'Staircases and bespoke elements',
-        'Commercial and hospitality interiors',
-        'Design consultation and sample selection'
+        {
+          title: 'Microcement floors and walls',
+          text: 'Seamless premium finishes for floors and walls, tailored to the architecture, light, and rhythm of each interior.'
+        },
+        {
+          title: 'Bathrooms and wet zones',
+          text: 'Specialized systems for bathrooms and moisture-prone spaces, balancing elegant texture with reliable daily performance.'
+        },
+        {
+          title: 'Staircases and bespoke elements',
+          text: 'Refined handcrafted applications for staircases, niches, and custom details that require continuity and precision.'
+        },
+        {
+          title: 'Commercial and hospitality interiors',
+          text: 'Durable, design-led microcement solutions for boutique hotels, showrooms, and premium commercial environments.'
+        },
+        {
+          title: 'Design consultation and sample selection',
+          text: 'Guided palette and texture consultation with curated samples to align finish, mood, and function before execution.'
+        }
       ]
     },
     approach: {
@@ -179,11 +194,26 @@ export const translations = {
     services: {
       title: 'Mikrocement podłogi, ściany i łazienka — usługi',
       items: [
-        'Mikrocement podłogi i mikrocement ściany',
-        'Mikrocement łazienka i strefy mokre',
-        'Schody i elementy na zamówienie',
-        'Wnętrza komercyjne i hotelowe',
-        'Konsultacje projektowe oraz dobór próbek'
+        {
+          title: 'Mikrocement podłogi i mikrocement ściany',
+          text: 'Bezspoinowe wykończenia premium na podłogach i ścianach, dopasowane do architektury, światła i charakteru wnętrza.'
+        },
+        {
+          title: 'Mikrocement łazienka i strefy mokre',
+          text: 'Specjalistyczne systemy do łazienek i stref narażonych na wilgoć, łączące elegancję faktury z codzienną trwałością.'
+        },
+        {
+          title: 'Schody i elementy na zamówienie',
+          text: 'Rzemieślnicza aplikacja na schodach, wnękach i detalach indywidualnych tam, gdzie liczy się ciągłość i precyzja.'
+        },
+        {
+          title: 'Wnętrza komercyjne i hotelowe',
+          text: 'Trwałe i projektowe realizacje z mikrocementu dla butikowych hoteli, showroomów i prestiżowych przestrzeni komercyjnych.'
+        },
+        {
+          title: 'Konsultacje projektowe oraz dobór próbek',
+          text: 'Doradztwo w zakresie tonacji i faktur wraz z doborem próbek, aby idealnie połączyć estetykę z funkcją przed realizacją.'
+        }
       ]
     },
     approach: {
