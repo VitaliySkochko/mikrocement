@@ -21,17 +21,19 @@ export function Section({ id, title, children, intro }) {
   return (
     <section id={id} className="section">
       <div className="container">
-        <h2>{title}</h2>
-        {intro ? <p className="section-intro">{intro}</p> : null}
+        <div className="section-heading">
+          <h2>{title}</h2>
+          {intro ? <p className="section-intro">{intro}</p> : null}
+        </div>
         {children}
       </div>
     </section>
   );
 }
 
-export function Card({ title, text }) {
+export function Card({ title, text, className = '' }) {
   return (
-    <article className="card">
+    <article className={`card ${className}`.trim()}>
       <h3>{title}</h3>
       <p>{text}</p>
     </article>

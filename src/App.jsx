@@ -12,34 +12,46 @@ export default function App() {
 
   return (
     <div className="app">
-      <header className="topbar container">
-        <span className="brand">LUX MIKROCEMENT</span>
-        <nav className="nav">
-          <a href="#hero">{t.nav.hero}</a>
-          <a href="#why">{t.nav.why}</a>
-          <a href="#services">{t.nav.services}</a>
-          <a href="#gallery">{t.nav.gallery}</a>
-          <a href="#approach">{t.nav.approach}</a>
-          <a href="#coverage">{t.nav.coverage}</a>
-          <a href="#contact">{t.nav.contact}</a>
-        </nav>
-        <LanguageSwitcher currentLang={lang} onChange={setLang} labels={t} />
+      <header className="topbar-wrap">
+        <div className="topbar container">
+          <span className="brand">LUX MIKROCEMENT</span>
+          <nav className="nav">
+            <a href="#hero">{t.nav.hero}</a>
+            <a href="#why">{t.nav.why}</a>
+            <a href="#services">{t.nav.services}</a>
+            <a href="#gallery">{t.nav.gallery}</a>
+            <a href="#approach">{t.nav.approach}</a>
+            <a href="#coverage">{t.nav.coverage}</a>
+            <a href="#contact">{t.nav.contact}</a>
+          </nav>
+          <LanguageSwitcher currentLang={lang} onChange={setLang} labels={t} />
+        </div>
       </header>
 
       <main>
         <section id="hero" className="hero">
-          <div className="container hero-content">
-            <p className="badge">{t.hero.badge}</p>
-            <h1>{t.hero.title}</h1>
-            <p className="hero-subtitle">{t.hero.subtitle}</p>
-            <div className="hero-cta">
-              <a className="btn btn-primary" href="#contact">
-                {t.hero.primaryCta}
-              </a>
-              <a className="btn btn-ghost" href="#services">
-                {t.hero.secondaryCta}
-              </a>
+          <div className="container hero-shell">
+            <div className="hero-copy">
+              <p className="hero-label">Architectural Surface Atelier</p>
+              <p className="badge">{t.hero.badge}</p>
+              <h1>{t.hero.title}</h1>
+              <p className="hero-subtitle">{t.hero.subtitle}</p>
+              <div className="hero-cta">
+                <a className="btn btn-primary" href="#contact">
+                  {t.hero.primaryCta}
+                </a>
+                <a className="btn btn-ghost" href="#services">
+                  {t.hero.secondaryCta}
+                </a>
+              </div>
             </div>
+
+            <aside className="hero-visual" aria-hidden="true">
+              <div className="visual-block visual-main" />
+              <div className="visual-block visual-column" />
+              <div className="visual-block visual-thin" />
+              <div className="visual-signature">LUX</div>
+            </aside>
           </div>
         </section>
 
@@ -53,8 +65,10 @@ export default function App() {
 
         <Section id="services" title={t.services.title}>
           <ul className="service-list">
-            {t.services.items.map((item) => (
-              <li key={item}>{item}</li>
+            {t.services.items.map((item, index) => (
+              <li key={item} style={{ '--service-delay': `${index * 50}ms` }}>
+                {item}
+              </li>
             ))}
           </ul>
         </Section>
@@ -77,19 +91,22 @@ export default function App() {
 
         <Section id="approach" title={t.approach.title}>
           <div className="grid grid-2">
-            {t.approach.steps.map((step) => (
-              <Card key={step.title} title={step.title} text={step.text} />
+            {t.approach.steps.map((step, index) => (
+              <Card key={step.title} title={step.title} text={step.text} className={index % 2 ? 'card-offset' : ''} />
             ))}
           </div>
         </Section>
 
         <Section id="coverage" title={t.coverage.title}>
-          <p>{t.coverage.text}</p>
+          <div className="coverage-callout">
+            <p>{t.coverage.text}</p>
+          </div>
         </Section>
 
         <section id="contact" className="section section-highlight">
           <div className="container contact-wrap">
             <div className="contact-copy">
+              <p className="hero-label">Private Design Consultation</p>
               <h2>{t.contact.title}</h2>
               <p>{t.contact.text}</p>
               <p className="contact-note">{t.contact.note}</p>
