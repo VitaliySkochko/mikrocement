@@ -1,0 +1,47 @@
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 78px;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mobile-menu-close {
+  border: 1px solid rgba(201, 162, 102, 0.4);
+  background: rgba(255, 255, 255, 0.02);
+  color: #f0e2cb;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.mobile-nav {
+  display: grid;
+  gap: 0.6rem;
+  padding-top: 1.8rem;
+}
+
+.mobile-nav a {
+  color: #f4ede2;
+  transition: color 220ms ease;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.86rem;
+  font-weight: 600;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mobile-menu-footer {
+  margin-top: 2rem;
+}
+
+.mobile-language-switcher {
+  width: fit-content;
+}
