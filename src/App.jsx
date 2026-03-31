@@ -1,10 +1,14 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { translations } from './translations';
 import { Card, LanguageSwitcher, Section } from './components';
 
 export default function App() {
-  const [lang, setLang] = useState('en');
+  const [lang, setLang] = useState('pl');
   const t = useMemo(() => translations[lang], [lang]);
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   return (
     <div className="app">
