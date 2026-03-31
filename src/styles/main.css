@@ -160,24 +160,6 @@ body.menu-open {
     pointer-events: auto;
   }
 
-  .hero {
-    padding-top: 5.4rem;
-    padding-bottom: 5.9rem;
-  }
-
-  .hero::before {
-    inset: 1.2rem 3.5% auto;
-    border-radius: 26px;
-  }
-
-  .hero-shell {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-visual {
-    min-height: 300px;
-    max-width: 520px;
-  }
 
   .card-offset,
   .card-offset:hover {
@@ -214,37 +196,6 @@ body.menu-open {
     font-size: 0.68rem;
   }
 
-  .hero {
-    padding: 4.9rem 0 4.7rem;
-  }
-
-  .hero-shell {
-    padding: 1.15rem 0.2rem;
-  }
-
-  h1 {
-    letter-spacing: 0.02em;
-  }
-
-  .hero-subtitle {
-    margin-top: 1.25rem;
-    line-height: 1.75;
-  }
-
-  .hero-cta {
-    width: 100%;
-    margin-top: 1.85rem;
-  }
-
-  .hero-cta .btn {
-    width: 100%;
-    text-align: center;
-    padding: 0.95rem 1rem;
-  }
-
-  .hero-visual {
-    min-height: 260px;
-  }
 
   .section {
     padding: 4.75rem 0;
