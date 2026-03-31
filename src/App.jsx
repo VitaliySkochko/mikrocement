@@ -4,29 +4,85 @@ import { Card, LanguageSwitcher, Section } from './components';
 
 export default function App() {
   const [lang, setLang] = useState('pl');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const t = useMemo(() => translations[lang], [lang]);
+  const navItems = [
+    { id: 'hero', label: t.nav.hero },
+    { id: 'why', label: t.nav.why },
+    { id: 'services', label: t.nav.services },
+    { id: 'gallery', label: t.nav.gallery },
+    { id: 'approach', label: t.nav.approach },
+    { id: 'coverage', label: t.nav.coverage },
+    { id: 'contact', label: t.nav.contact }
+  ];
 
   useEffect(() => {
     document.documentElement.lang = lang;
   }, [lang]);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) {
+      document.body.classList.remove('menu-open');
+      return undefined;
+    }
+
+    document.body.classList.add('menu-open');
+    return () => document.body.classList.remove('menu-open');
+  }, [isMobileMenuOpen]);
+
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
     <div className="app">
       <header className="topbar-wrap">
         <div className="topbar container">
           <span className="brand">LUX MIKROCEMENT</span>
-          <nav className="nav">
-            <a href="#hero">{t.nav.hero}</a>
-            <a href="#why">{t.nav.why}</a>
-            <a href="#services">{t.nav.services}</a>
-            <a href="#gallery">{t.nav.gallery}</a>
-            <a href="#approach">{t.nav.approach}</a>
-            <a href="#coverage">{t.nav.coverage}</a>
-            <a href="#contact">{t.nav.contact}</a>
+          <nav className="nav nav-desktop">
+            {navItems.map((item) => (
+              <a key={item.id} href={`#${item.id}`}>
+                {item.label}
+              </a>
+            ))}
           </nav>
-          <LanguageSwitcher currentLang={lang} onChange={setLang} labels={t} />
+          <LanguageSwitcher currentLang={lang} onChange={setLang} labels={t} className="desktop-language-switcher" />
+          <button
+            type="button"
+            className={`mobile-menu-toggle ${isMobileMenuOpen ? 'active' : ''}`}
+            aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
         </div>
       </header>
+      <div
+        id="mobile-menu"
+        className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Mobile navigation"
+      >
+        <div className="mobile-menu-header container">
+          <span className="brand">LUX MIKROCEMENT</span>
+          <button type="button" className="mobile-menu-close" onClick={closeMobileMenu} aria-label="Close menu">
+            ×
+          </button>
+        </div>
+        <nav className="mobile-nav container">
+          {navItems.map((item) => (
+            <a key={item.id} href={`#${item.id}`} onClick={closeMobileMenu}>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+        <div className="mobile-menu-footer container">
+          <LanguageSwitcher currentLang={lang} onChange={setLang} labels={t} className="mobile-language-switcher" />
+        </div>
+      </div>
 
       <main>
         <section id="hero" className="hero">

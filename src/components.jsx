@@ -1,8 +1,8 @@
 import React from 'react';
 
-export function LanguageSwitcher({ currentLang, onChange, labels }) {
+export function LanguageSwitcher({ currentLang, onChange, labels, className = '' }) {
   return (
-    <div className="language-switcher" aria-label={labels.switchLabel}>
+    <div className={`language-switcher ${className}`.trim()} aria-label={labels.switchLabel}>
       {['en', 'pl'].map((lang) => (
         <button
           key={lang}
