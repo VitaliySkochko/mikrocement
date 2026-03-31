@@ -71,25 +71,57 @@ export const translations = {
     },
     gallery: {
       title: 'Project Gallery',
-      intro: 'A curated look at premium interiors finished with artisan microcement craftsmanship.',
+      intro: null,
       items: [
         {
-          title: 'Microcement Floors',
-          description: 'Seamless floor finishes with refined texture and long-term durability.',
+          title: 'Gallery image 01',
           image:
-            'https://images.unsplash.com/photo-1617104551722-3b2d5136643b?auto=format&fit=crop&w=1200&q=80'
+            'https://images.unsplash.com/photo-1616137466211-f939a420be84?auto=format&fit=crop&w=1600&q=80'
         },
         {
-          title: 'Microcement Bathrooms',
-          description: 'Water-resistant, minimalist bathroom surfaces with a spa-like aesthetic.',
+          title: 'Gallery image 02',
           image:
-            'https://images.unsplash.com/photo-1600210492486-724fe5c67fb3?auto=format&fit=crop&w=1200&q=80'
+            'https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=1600&q=80'
         },
         {
-          title: 'Modern Luxury Interiors',
-          description: 'Architectural spaces where premium materials meet contemporary elegance.',
+          title: 'Gallery image 03',
           image:
-            'https://images.unsplash.com/photo-1616594039964-3d0bb886f1ba?auto=format&fit=crop&w=1200&q=80'
+            'https://images.unsplash.com/photo-1600210492486-724fe5c67fb3?auto=format&fit=crop&w=1600&q=80'
+        },
+        {
+          title: 'Gallery image 04',
+          image:
+            'https://images.unsplash.com/photo-1616594039964-3d0bb886f1ba?auto=format&fit=crop&w=1600&q=80'
+        },
+        {
+          title: 'Gallery image 05',
+          image:
+            'https://images.unsplash.com/photo-1617104551722-3b2d5136643b?auto=format&fit=crop&w=1600&q=80'
+        },
+        {
+          title: 'Gallery image 06',
+          image:
+            'https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=1600&q=80'
+        },
+        {
+          title: 'Gallery image 07',
+          image:
+            'https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=1600&q=80'
+        },
+        {
+          title: 'Gallery image 08',
+          image:
+            'https://images.unsplash.com/photo-1618220048045-10a6dbdf83e0?auto=format&fit=crop&w=1600&q=80'
+        },
+        {
+          title: 'Gallery image 09',
+          image:
+            'https://images.unsplash.com/photo-1630699144339-420f59b9f8ce?auto=format&fit=crop&w=1600&q=80'
+        },
+        {
+          title: 'Gallery image 10',
+          image:
+            'https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77?auto=format&fit=crop&w=1600&q=80'
         }
       ]
     },
@@ -177,25 +209,57 @@ export const translations = {
     },
     gallery: {
       title: 'Galeria Realizacji',
-      intro: 'Wybrane kadry premium wnętrz z wykończeniem wykonanym w technologii mikrocementu.',
+      intro: null,
       items: [
         {
-          title: 'Mikrocement Podłogi',
-          description: 'Bezspoinowe podłogi o wyrafinowanej strukturze i wysokiej trwałości.',
+          title: 'Zdjęcie galerii 01',
           image:
-            'https://images.unsplash.com/photo-1617104551722-3b2d5136643b?auto=format&fit=crop&w=1200&q=80'
+            'https://images.unsplash.com/photo-1616137466211-f939a420be84?auto=format&fit=crop&w=1600&q=80'
         },
         {
-          title: 'Mikrocement Łazienki',
-          description: 'Minimalistyczne, wodoodporne powierzchnie łazienkowe o luksusowym charakterze.',
+          title: 'Zdjęcie galerii 02',
           image:
-            'https://images.unsplash.com/photo-1600210492486-724fe5c67fb3?auto=format&fit=crop&w=1200&q=80'
+            'https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=1600&q=80'
         },
         {
-          title: 'Nowoczesne Luksusowe Wnętrza',
-          description: 'Prestiżowe przestrzenie łączące nowoczesną architekturę i eleganckie detale.',
+          title: 'Zdjęcie galerii 03',
           image:
-            'https://images.unsplash.com/photo-1616594039964-3d0bb886f1ba?auto=format&fit=crop&w=1200&q=80'
+            'https://images.unsplash.com/photo-1600210492486-724fe5c67fb3?auto=format&fit=crop&w=1600&q=80'
+        },
+        {
+          title: 'Zdjęcie galerii 04',
+          image:
+            'https://images.unsplash.com/photo-1616594039964-3d0bb886f1ba?auto=format&fit=crop&w=1600&q=80'
+        },
+        {
+          title: 'Zdjęcie galerii 05',
+          image:
+            'https://images.unsplash.com/photo-1617104551722-3b2d5136643b?auto=format&fit=crop&w=1600&q=80'
+        },
+        {
+          title: 'Zdjęcie galerii 06',
+          image:
+            'https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=1600&q=80'
+        },
+        {
+          title: 'Zdjęcie galerii 07',
+          image:
+            'https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=1600&q=80'
+        },
+        {
+          title: 'Zdjęcie galerii 08',
+          image:
+            'https://images.unsplash.com/photo-1618220048045-10a6dbdf83e0?auto=format&fit=crop&w=1600&q=80'
+        },
+        {
+          title: 'Zdjęcie galerii 09',
+          image:
+            'https://images.unsplash.com/photo-1630699144339-420f59b9f8ce?auto=format&fit=crop&w=1600&q=80'
+        },
+        {
+          title: 'Zdjęcie galerii 10',
+          image:
+            'https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77?auto=format&fit=crop&w=1600&q=80'
         }
       ]
     },
