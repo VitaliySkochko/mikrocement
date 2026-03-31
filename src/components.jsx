@@ -21,7 +21,7 @@ export function Section({ id, title, children, intro }) {
   return (
     <section id={id} className="section">
       <div className="container">
-        <div className="section-heading">
+        <div className="section-heading reveal" data-reveal>
           <h2>{title}</h2>
           {intro ? <p className="section-intro">{intro}</p> : null}
         </div>
@@ -31,9 +31,9 @@ export function Section({ id, title, children, intro }) {
   );
 }
 
-export function Card({ title, text, className = '' }) {
+export function Card({ title, text, className = '', delay = 0 }) {
   return (
-    <article className={`card ${className}`.trim()}>
+    <article className={`card reveal ${className}`.trim()} data-reveal style={{ '--reveal-delay': `${delay}ms` }}>
       <h3>{title}</h3>
       <p>{text}</p>
     </article>
