@@ -75,27 +75,24 @@ body.menu-open {
 }
 
 .reveal {
-  --reveal-distance: 30px;
-  --reveal-scale: 0.985;
-  --reveal-duration: 950ms;
-  --reveal-ease: cubic-bezier(0.18, 0.84, 0.24, 1);
+  --reveal-distance: 22px;
+  --reveal-scale: 0.992;
+  --reveal-duration: 700ms;
+  --reveal-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --reveal-base-delay: var(--reveal-delay, 0ms);
-  --reveal-stagger-step: var(--reveal-step, 90ms);
+  --reveal-stagger-step: var(--reveal-step, 70ms);
   --reveal-order-index: var(--reveal-order, 0);
+
   opacity: 0;
   transform: translate3d(0, var(--reveal-distance), 0) scale(var(--reveal-scale));
-  filter: blur(8px);
   transition:
     opacity var(--reveal-duration) var(--reveal-ease),
-    transform var(--reveal-duration) var(--reveal-ease),
-    filter var(--reveal-duration) var(--reveal-ease);
+    transform var(--reveal-duration) var(--reveal-ease);
   transition-delay: calc(var(--reveal-base-delay) + (var(--reveal-order-index) * var(--reveal-stagger-step)));
-  will-change: opacity, transform, filter;
 }
 
 .reveal.is-visible {
   opacity: 1;
-  filter: blur(0);
   transform: translate3d(0, 0, 0) scale(1);
 }
 

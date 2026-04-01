@@ -29,7 +29,6 @@
   border: 1px solid var(--approach-border);
   padding: clamp(1.3rem, 2.2vw, 1.95rem);
   min-height: 220px;
-  backdrop-filter: blur(4px);
   background:
     radial-gradient(130% 145% at 0% 0%, rgba(201, 162, 102, 0.18), transparent 45%),
     radial-gradient(120% 100% at 100% 100%, rgba(84, 94, 120, 0.26), transparent 58%),

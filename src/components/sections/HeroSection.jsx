@@ -21,12 +21,7 @@ export function HeroSection({ hero, onNavClick }) {
           </div>
         </div>
 
-        <aside className="hero-visual reveal" aria-hidden="true" data-reveal="image" style={{ '--reveal-delay': '220ms' }}>
-          <div className="visual-block visual-main" />
-          <div className="visual-block visual-column" />
-          <div className="visual-block visual-thin" />
-          <div className="visual-signature">LUX</div>
-        </aside>
+      
       </div>
     </section>
   );

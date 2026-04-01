@@ -141,41 +141,22 @@ export const translations = {
       ]
     },
     coverage: {
-      title: 'Coverage Across Poland',
-      intro:
-        'From private residences to hospitality interiors, we deliver consistent microcement craftsmanship nationwide.',
-      eyebrow: 'Nationwide Premium Service',
-      lead:
-        'LUX MIKROCEMENT operates throughout Poland, with frequent projects in Warsaw, Kraków, Wrocław, Gdańsk, Poznań, and the Tricity area. We work closely with architects, investors, and private clients who expect precise execution and discreet, high-standard service.',
-      highlightsLabel: 'Coverage highlights',
-      highlights: [
-        'Execution across all regions of Poland',
-        'Strong presence in major metropolitan markets',
-        'Experienced in high-end residential and boutique commercial interiors'
-      ],
-      images: [
-        {
-          src: 'https://images.unsplash.com/photo-1616594039964-04fa6f46f4aa?auto=format&fit=crop&w=900&q=80',
-          alt: 'Premium microcement wall detail in modern interior'
-        },
-        {
-          src: 'https://images.unsplash.com/photo-1600566753151-384129cf4e3e?auto=format&fit=crop&w=900&q=80',
-          alt: 'Luxury bathroom with seamless stone-like surfaces'
-        },
-        {
-          src: 'https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=900&q=80',
-          alt: 'Contemporary open-plan living area with refined finishes'
-        },
-        {
-          src: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80',
-          alt: 'Minimal architectural hallway with elegant textured walls'
-        },
-        {
-          src: 'https://images.unsplash.com/photo-1616593969747-4797dc75033e?auto=format&fit=crop&w=900&q=80',
-          alt: 'Modern microcement floor and wall composition'
-        }
-      ]
+  title: 'What Is Microcement?',
+  paragraphs: [
+    'Microcement is a material that combines exceptional durability with flexibility. Its resistance to abrasion allows it to maintain its appearance for many years, even in areas with heavy daily use. These properties allow it to adapt to different substrates without cracking or chipping.',
+    'It is also practical, versatile, and available in a wide range of colours, making it easy to match different interior styles. Its water resistance makes it an excellent choice for bathrooms and kitchens, while its smooth surface supports easy maintenance and everyday comfort.'
+  ],
+  images: [
+    {
+      src: 'https://images.unsplash.com/photo-1616594039964-04fa6f46f4aa?auto=format&fit=crop&w=1200&q=80',
+      alt: 'Bright modern interior with seamless microcement floor'
     },
+    {
+      src: 'https://images.unsplash.com/photo-1600566753151-384129cf4e3e?auto=format&fit=crop&w=1200&q=80',
+      alt: 'Elegant interior with refined microcement surfaces'
+    }
+  ]
+},
     contact: {
       title: 'Let’s Create Something Exceptional',
       text: 'Tell us about your project and receive a tailored recommendation.',
@@ -326,41 +307,22 @@ export const translations = {
       ]
     },
     coverage: {
-      title: 'Realizacje w całej Polsce',
-      intro:
-        'Od prywatnych apartamentów po wnętrza hotelowe — zapewniamy spójny standard realizacji mikrocementowych na terenie całego kraju.',
-      eyebrow: 'Obsługa premium w skali kraju',
-      lead:
-        'LUX MIKROCEMENT realizuje projekty w całej Polsce, ze szczególnie silną obecnością w Warszawie, Krakowie, Wrocławiu, Gdańsku, Poznaniu i Trójmieście. Współpracujemy z architektami, inwestorami oraz klientami prywatnymi oczekującymi precyzji wykonania i wysokiej kultury współpracy.',
-      highlightsLabel: 'Najważniejsze informacje o zasięgu',
-      highlights: [
-        'Realizacje na terenie całej Polski',
-        'Silna obecność w największych miastach',
-        'Doświadczenie w projektach rezydencjalnych i butikowych wnętrzach komercyjnych'
-      ],
-      images: [
-        {
-          src: 'https://images.unsplash.com/photo-1616594039964-04fa6f46f4aa?auto=format&fit=crop&w=900&q=80',
-          alt: 'Detal ściany z mikrocementu we wnętrzu premium'
-        },
-        {
-          src: 'https://images.unsplash.com/photo-1600566753151-384129cf4e3e?auto=format&fit=crop&w=900&q=80',
-          alt: 'Luksusowa łazienka z bezspoinowym wykończeniem'
-        },
-        {
-          src: 'https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=900&q=80',
-          alt: 'Nowoczesna strefa dzienna z eleganckimi powierzchniami'
-        },
-        {
-          src: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80',
-          alt: 'Minimalistyczny korytarz z fakturowanymi ścianami'
-        },
-        {
-          src: 'https://images.unsplash.com/photo-1616593969747-4797dc75033e?auto=format&fit=crop&w=900&q=80',
-          alt: 'Nowoczesna kompozycja podłóg i ścian z mikrocementu'
-        }
-      ]
+  title: 'What Is Microcement?',
+  paragraphs: [
+    'Microcement is a material that combines exceptional durability with flexibility. Its resistance to abrasion allows it to maintain its appearance for many years, even in areas with heavy daily use. These properties allow it to adapt to different substrates without cracking or chipping.',
+    'It is also practical, versatile, and available in a wide range of colours, making it easy to match different interior styles. Its water resistance makes it an excellent choice for bathrooms and kitchens, while its smooth surface supports easy maintenance and everyday comfort.'
+  ],
+  images: [
+    {
+      src: 'https://images.unsplash.com/photo-1616594039964-04fa6f46f4aa?auto=format&fit=crop&w=1200&q=80',
+      alt: 'Bright modern interior with seamless microcement floor'
     },
+    {
+      src: 'https://images.unsplash.com/photo-1600566753151-384129cf4e3e?auto=format&fit=crop&w=1200&q=80',
+      alt: 'Elegant interior with refined microcement surfaces'
+    }
+  ]
+},
     contact: {
       title: 'Stwórzmy Coś Wyjątkowego',
       text: 'Opowiedz nam o projekcie i otrzymaj dopasowaną rekomendację.',

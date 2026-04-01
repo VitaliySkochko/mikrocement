@@ -3,13 +3,14 @@ import { Section } from '../layout/Section';
 import './CoverageSection.css';
 
 export function CoverageSection({ coverage }) {
-  const featuredImages = coverage.images.slice(0, 2);
+  const images = Array.isArray(coverage.images) ? coverage.images.slice(0, 2) : [];
+  const paragraphs = Array.isArray(coverage.paragraphs) ? coverage.paragraphs : [];
 
   return (
     <Section
       id="coverage"
-      title={coverage.title}
-      intro={coverage.intro}
+      title=""
+      intro=""
       className="coverage-section"
     >
       <div className="coverage-layout">
@@ -19,22 +20,26 @@ export function CoverageSection({ coverage }) {
           data-reveal-group="coverage-images"
           style={{ '--reveal-delay': '220ms', '--reveal-step': '120ms' }}
         >
-          {featuredImages.map((image, index) => (
+          {images.map((image, index) => (
             <figure
-              key={image.src}
-              className="coverage-photo"
-              style={{ '--reveal-delay': `${180 + index * 90}ms` }}
+              key={image.src || index}
+              className={`coverage-photo coverage-photo-${index + 1}`}
             >
-              <img src={image.src} alt={image.alt} loading="lazy" />
+              <img
+                src={image.src}
+                alt={image.alt || coverage.title || 'Coverage image'}
+                loading="lazy"
+              />
             </figure>
           ))}
         </div>
 
         <article className="coverage-content reveal" data-reveal="text">
-          <h3 className="coverage-article-title">{coverage.title}</h3>
+          <h2 className="coverage-article-title">{coverage.title}</h2>
+
           <div className="coverage-paragraphs">
-            {coverage.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
+            {paragraphs.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
             ))}
           </div>
         </article>

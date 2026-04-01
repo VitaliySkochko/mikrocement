@@ -26,8 +26,8 @@ export default function App() {
       { id: 'why', label: t.nav.why },
       { id: 'gallery', label: t.nav.gallery },
       { id: 'approach', label: t.nav.approach },
-      { id: 'coverage', label: t.nav.coverage },
       { id: 'services', label: t.nav.services },
+      { id: 'coverage', label: t.nav.coverage },      
       { id: 'contact', label: t.nav.contact }
     ],
     [t]
@@ -102,8 +102,8 @@ export default function App() {
         <WhyMicrocementSection why={t.why} />
         <GallerySection gallery={t.gallery} />
         <ApproachSection approach={t.approach} />
-        <CoverageSection coverage={t.coverage} />
         <ServicesSection services={t.services} />
+        <CoverageSection coverage={t.coverage} />        
         <ContactSection contact={t.contact} />
       </main>
 
