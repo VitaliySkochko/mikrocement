@@ -4,7 +4,7 @@ import './CoverageSection.css';
 
 export function CoverageSection({ coverage }) {
   const images = Array.isArray(coverage.images) ? coverage.images.slice(0, 2) : [];
-  const paragraphs = Array.isArray(coverage.paragraphs) ? coverage.paragraphs : [];
+  const paragraphs = Array.isArray(coverage.paragraphs) ? coverage.paragraphs.slice(0, 2) : [];
 
   return (
     <Section
