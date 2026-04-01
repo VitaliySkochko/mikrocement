@@ -5,13 +5,13 @@ export function ContactSection({ contact }) {
   return (
     <section id="contact" className="section section-highlight">
       <div className="container contact-wrap">
-        <div className="contact-copy reveal" data-reveal>
+        <div className="contact-copy reveal" data-reveal="text">
           <p className="hero-label">Private Design Consultation</p>
           <h2>{contact.title}</h2>
           <p>{contact.text}</p>
           <p className="contact-note">{contact.note}</p>
         </div>
-        <form className="contact-form reveal" action="mailto:contact@luxmikrocement.pl" method="post" data-reveal>
+        <form className="contact-form reveal" action="mailto:contact@luxmikrocement.pl" method="post" data-reveal="cta" style={{ '--reveal-delay': '160ms' }}>
           <label htmlFor="contact-name">Name</label>
           <input id="contact-name" name="name" type="text" placeholder="Your full name" required />
 

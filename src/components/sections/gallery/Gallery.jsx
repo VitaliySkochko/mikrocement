@@ -30,7 +30,7 @@ export function Gallery({ items = [] }) {
   }
 
   return (
-    <div className="gallery reveal" data-reveal>
+    <div className="gallery reveal" data-reveal="gallery">
       <div className="gallery-viewport" aria-live="polite">
         <div className="gallery-track" style={{ transform: `translate3d(-${activeIndex * 100}%, 0, 0)` }}>
           {items.map((item, index) => (

@@ -37,9 +37,10 @@ export function WhyMicrocementSection({ why }) {
           <article
             key={item.title}
             className="why-microcement-card reveal"
-            data-reveal
+            data-reveal="card"
+            data-reveal-group="why-cards"
             role="listitem"
-            style={{ '--reveal-delay': `${index * 120}ms` }}
+            style={{ '--reveal-delay': '80ms', '--reveal-step': '130ms' }}
           >
             <span className="why-microcement-icon" aria-hidden="true">
               {icons[index % icons.length]}
