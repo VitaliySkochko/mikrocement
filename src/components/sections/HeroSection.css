@@ -1,5 +1,5 @@
 .hero {
-  --hero-image: url('https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=2200&q=80');
+  --hero-image: url('../assets/images/gallery2.jpg');
   position: relative;
   padding: clamp(5.4rem, 9vw, 7.4rem) 0;
   min-height: min(900px, 94vh);
@@ -23,6 +23,7 @@
   background-position: center;
   background-repeat: no-repeat;
   transform: scale(1.01);
+  animation: heroImageZoom 1.8s ease-out both;
 }
 
 .hero::after {
@@ -60,7 +61,7 @@
   font-size: 0.8rem;
 }
 
-h1 {
+.hero-title {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(2.65rem, 5.8vw, 5.2rem);
   margin: 1rem 0 0;
@@ -83,6 +84,65 @@ h1 {
   gap: 0.9rem;
   flex-wrap: wrap;
   margin-top: 2.3rem;
+}
+
+/* staged entrance animation */
+
+.hero-animate {
+  opacity: 0;
+  transform: translateY(32px);
+  filter: blur(8px);
+  animation: heroFadeUp 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
+.hero-animate-1 {
+  animation-delay: 0.12s;
+}
+
+.hero-animate-2 {
+  animation-delay: 0.28s;
+}
+
+.hero-animate-3 {
+  animation-delay: 0.46s;
+}
+
+.hero-animate-4 {
+  animation-delay: 0.68s;
+}
+
+.hero-animate-5 {
+  animation-delay: 0.9s;
+}
+
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(32px);
+    filter: blur(8px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes heroImageZoom {
+  0% {
+    transform: scale(1.08);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.01);
+    opacity: 1;
+  }
 }
 
 .hero-visual {
@@ -167,7 +227,7 @@ h1 {
     padding: 1.15rem 0.2rem;
   }
 
-  h1 {
+  .hero-title {
     letter-spacing: 0.02em;
   }
 
@@ -189,5 +249,18 @@ h1 {
 
   .hero-visual {
     min-height: 260px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .hero-animate {
+    animation: none;
+  }
+
+  .hero-animate {
+    opacity: 1;
+    transform: none;
+    filter: none;
   }
 }

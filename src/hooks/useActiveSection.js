@@ -2,32 +2,38 @@ import { useEffect } from 'react';
 
 export function useActiveSection(navItems, setActiveSection) {
   useEffect(() => {
-    const sections = navItems.map((item) => document.getElementById(item.id)).filter(Boolean);
-
-    if (!sections.length) {
-      return undefined;
+    if (!Array.isArray(navItems) || !navItems.length) {
+      return;
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntries = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+    const handleScroll = () => {
+      const topbarHeight = document.querySelector('.topbar-wrap')?.offsetHeight ?? 0;
+      const offset = topbarHeight + 110;
 
-        if (!visibleEntries.length) {
-          return;
+      let currentSection = navItems[0]?.id || 'hero';
+
+      for (const item of navItems) {
+        const element = document.getElementById(item.id);
+        if (!element) continue;
+
+        const rect = element.getBoundingClientRect();
+
+        if (rect.top <= offset) {
+          currentSection = item.id;
         }
-
-        setActiveSection(visibleEntries[0].target.id);
-      },
-      {
-        rootMargin: '-32% 0px -48% 0px',
-        threshold: [0.2, 0.35, 0.55, 0.75]
       }
-    );
 
-    sections.forEach((section) => observer.observe(section));
+      setActiveSection(currentSection);
+    };
 
-    return () => observer.disconnect();
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, [navItems, setActiveSection]);
 }

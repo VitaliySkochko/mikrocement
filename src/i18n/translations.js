@@ -143,8 +143,13 @@ export const translations = {
     coverage: {
   title: 'What Is Microcement?',
   paragraphs: [
-    'Microcement is a material that combines exceptional durability with flexibility. Its resistance to abrasion allows it to maintain its appearance for many years, even in areas with heavy daily use. These properties allow it to adapt to different substrates without cracking or chipping.',
-    'It is also practical, versatile, and available in a wide range of colours, making it easy to match different interior styles. Its water resistance makes it an excellent choice for bathrooms and kitchens, while its smooth surface supports easy maintenance and everyday comfort.'
+    'Microcement is a modern decorative coating used in contemporary interior architecture. It creates seamless surfaces without joints, giving interiors a clean and refined appearance that suits minimalist and premium spaces.',
+
+    'Unlike traditional tiles or stone, microcement forms a continuous layer that adapts perfectly to floors, walls, bathrooms, staircases, and custom elements. This flexibility allows designers and homeowners to achieve a unified visual style throughout the entire interior.',
+
+    'One of the main advantages of microcement is its durability. High-quality systems are resistant to abrasion, moisture, and temperature changes, making them ideal for both residential and commercial environments with intensive daily use.',
+
+    'Microcement is also valued for its aesthetic versatility. With a wide palette of colours and textures, it can create surfaces ranging from soft, natural tones to bold architectural finishes while remaining easy to maintain and pleasant to the touch.'
   ],
   images: [
     {
@@ -307,10 +312,15 @@ export const translations = {
       ]
     },
     coverage: {
-  title: 'What Is Microcement?',
+  title: 'Czym jest mikrocement?',
   paragraphs: [
-    'Microcement is a material that combines exceptional durability with flexibility. Its resistance to abrasion allows it to maintain its appearance for many years, even in areas with heavy daily use. These properties allow it to adapt to different substrates without cracking or chipping.',
-    'It is also practical, versatile, and available in a wide range of colours, making it easy to match different interior styles. Its water resistance makes it an excellent choice for bathrooms and kitchens, while its smooth surface supports easy maintenance and everyday comfort.'
+    'Mikrocement to nowoczesna powłoka dekoracyjna stosowana w architekturze wnętrz. Tworzy jednolite powierzchnie bez fug, dzięki czemu przestrzeń wygląda elegancko, minimalistycznie i bardzo nowocześnie.',
+
+    'W przeciwieństwie do tradycyjnych płytek czy kamienia mikrocement tworzy ciągłą warstwę, którą można stosować na podłogach, ścianach, w łazienkach, na schodach oraz elementach wykonanych na zamówienie. Pozwala to zachować spójny styl w całym wnętrzu.',
+
+    'Jedną z największych zalet mikrocementu jest jego trwałość. Profesjonalne systemy są odporne na ścieranie, wilgoć oraz zmiany temperatury, dlatego doskonale sprawdzają się zarówno w domach prywatnych, jak i w przestrzeniach komercyjnych.',
+
+    'Mikrocement daje również ogromną swobodę projektową. Dzięki szerokiej gamie kolorów i struktur można uzyskać zarówno subtelne, naturalne powierzchnie, jak i bardziej wyraziste efekty architektoniczne przy zachowaniu łatwej pielęgnacji.'
   ],
   images: [
     {

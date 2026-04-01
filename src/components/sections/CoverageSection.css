@@ -3,17 +3,21 @@
 }
 
 .coverage-layout {
-  margin-top: clamp(1.6rem, 3vw, 2.8rem);
+  margin: clamp(1.6rem, 3vw, 2.8rem) auto 0;
   display: grid;
   grid-template-columns: clamp(260px, 28vw, 300px) minmax(0, 1fr);
   gap: clamp(1.5rem, 3.8vw, 4.5rem);
-  align-items: start;
+  align-items: center;
+  max-width: 1100px;
+  width: 100%;
 }
 
 .coverage-media {
   display: grid;
   gap: clamp(0.75rem, 1.4vw, 1.1rem);
   width: 100%;
+  max-width: 280px;
+  justify-self: center;
 }
 
 .coverage-photo {
@@ -23,29 +27,35 @@
   background: rgba(255, 255, 255, 0.03);
 }
 
+/* stacking effect */
+
 .coverage-photo-2 {
-  transform: translateX(clamp(10px, 1.5vw, 20px));
+  transform: translateX(16px);
+}
+
+.coverage-photo-3 {
+  transform: translateX(32px);
 }
 
 .coverage-photo img {
   width: 100%;
-  height: clamp(180px, 21vw, 230px);
+  height: clamp(140px, 18vw, 190px);
   display: block;
   object-fit: cover;
   border-radius: 18px;
   transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
-  transform-origin: center;
 }
 
 .coverage-photo:hover img {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
 .coverage-content {
   display: grid;
   gap: clamp(0.95rem, 1.6vw, 1.35rem);
   max-width: 62ch;
-  padding-top: clamp(0.15rem, 0.8vw, 0.6rem);
+  width: 100%;
+  justify-self: center;
 }
 
 .coverage-article-title {
@@ -72,29 +82,30 @@
 }
 
 @media (max-width: 980px) {
+
   .coverage-layout {
     grid-template-columns: 1fr;
     gap: clamp(1.2rem, 3vw, 2.3rem);
+    max-width: 720px;
   }
 
   .coverage-media {
     max-width: 100%;
   }
 
-  .coverage-photo-2 {
+  .coverage-photo-2,
+  .coverage-photo-3 {
     transform: none;
   }
 
   .coverage-content {
     max-width: 100%;
-    padding-top: 0;
+    text-align: left;
   }
+
 }
 
 @media (max-width: 640px) {
-  .coverage-media {
-    gap: 0.75rem;
-  }
 
   .coverage-photo {
     border-radius: 16px;
@@ -105,11 +116,4 @@
     border-radius: 16px;
   }
 
-  .coverage-photo:hover img {
-    transform: scale(1.03);
-  }
-
-  .coverage-article-title {
-    font-size: clamp(1.7rem, 8.2vw, 2.4rem);
-  }
 }

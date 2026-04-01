@@ -6,22 +6,41 @@ export function HeroSection({ hero, onNavClick }) {
   return (
     <section id="hero" className="hero">
       <div className="container hero-shell">
-        <div className="hero-copy reveal" data-reveal="hero">
-          <p className="hero-label">Architectural Surface Atelier</p>
-          <p className="badge">{hero.badge}</p>
-          <h1>{hero.title}</h1>
-          <p className="hero-subtitle">{hero.subtitle}</p>
-          <div className="hero-cta reveal reveal-stagger" data-reveal="cta" style={{ '--reveal-delay': '140ms' }}>
-            <Button variant="primary" href="#contact" onClick={(event) => onNavClick(event, 'contact')}>
+        <div className="hero-copy">
+          <p className="hero-label hero-animate hero-animate-1">
+            Architectural Surface Atelier
+          </p>
+
+          <p className="badge hero-animate hero-animate-2">
+            {hero.badge}
+          </p>
+
+          <h1 className="hero-title hero-animate hero-animate-3">
+            {hero.title}
+          </h1>
+
+          <p className="hero-subtitle hero-animate hero-animate-4">
+            {hero.subtitle}
+          </p>
+
+          <div className="hero-cta hero-animate hero-animate-5">
+            <Button
+              variant="primary"
+              href="#contact"
+              onClick={(event) => onNavClick(event, 'contact')}
+            >
               {hero.primaryCta}
             </Button>
-            <Button variant="ghost" href="#services" onClick={(event) => onNavClick(event, 'services')}>
+
+            <Button
+              variant="ghost"
+              href="#services"
+              onClick={(event) => onNavClick(event, 'services')}
+            >
               {hero.secondaryCta}
             </Button>
           </div>
         </div>
-
-      
       </div>
     </section>
   );
