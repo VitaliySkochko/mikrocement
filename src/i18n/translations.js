@@ -141,8 +141,40 @@ export const translations = {
       ]
     },
     coverage: {
-      title: 'Coverage in Poland',
-      text: 'Based in Poland, we deliver projects in major cities including Warsaw, Kraków, Wrocław, Gdańsk, Poznań, and surrounding regions.'
+      title: 'Coverage Across Poland',
+      intro:
+        'From private residences to hospitality interiors, we deliver consistent microcement craftsmanship nationwide.',
+      eyebrow: 'Nationwide Premium Service',
+      lead:
+        'LUX MIKROCEMENT operates throughout Poland, with frequent projects in Warsaw, Kraków, Wrocław, Gdańsk, Poznań, and the Tricity area. We work closely with architects, investors, and private clients who expect precise execution and discreet, high-standard service.',
+      highlightsLabel: 'Coverage highlights',
+      highlights: [
+        'Execution across all regions of Poland',
+        'Strong presence in major metropolitan markets',
+        'Experienced in high-end residential and boutique commercial interiors'
+      ],
+      images: [
+        {
+          src: 'https://images.unsplash.com/photo-1616594039964-04fa6f46f4aa?auto=format&fit=crop&w=900&q=80',
+          alt: 'Premium microcement wall detail in modern interior'
+        },
+        {
+          src: 'https://images.unsplash.com/photo-1600566753151-384129cf4e3e?auto=format&fit=crop&w=900&q=80',
+          alt: 'Luxury bathroom with seamless stone-like surfaces'
+        },
+        {
+          src: 'https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=900&q=80',
+          alt: 'Contemporary open-plan living area with refined finishes'
+        },
+        {
+          src: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80',
+          alt: 'Minimal architectural hallway with elegant textured walls'
+        },
+        {
+          src: 'https://images.unsplash.com/photo-1616593969747-4797dc75033e?auto=format&fit=crop&w=900&q=80',
+          alt: 'Modern microcement floor and wall composition'
+        }
+      ]
     },
     contact: {
       title: 'Let’s Create Something Exceptional',
@@ -294,8 +326,40 @@ export const translations = {
       ]
     },
     coverage: {
-      title: 'Mikrocement Polska — zasięg realizacji',
-      text: 'Realizujemy projekty mikrocementowe na terenie całej Polski, w tym mikrocement Warszawa, Kraków, Wrocław, Gdańsk, Poznań oraz okoliczne regiony.'
+      title: 'Realizacje w całej Polsce',
+      intro:
+        'Od prywatnych apartamentów po wnętrza hotelowe — zapewniamy spójny standard realizacji mikrocementowych na terenie całego kraju.',
+      eyebrow: 'Obsługa premium w skali kraju',
+      lead:
+        'LUX MIKROCEMENT realizuje projekty w całej Polsce, ze szczególnie silną obecnością w Warszawie, Krakowie, Wrocławiu, Gdańsku, Poznaniu i Trójmieście. Współpracujemy z architektami, inwestorami oraz klientami prywatnymi oczekującymi precyzji wykonania i wysokiej kultury współpracy.',
+      highlightsLabel: 'Najważniejsze informacje o zasięgu',
+      highlights: [
+        'Realizacje na terenie całej Polski',
+        'Silna obecność w największych miastach',
+        'Doświadczenie w projektach rezydencjalnych i butikowych wnętrzach komercyjnych'
+      ],
+      images: [
+        {
+          src: 'https://images.unsplash.com/photo-1616594039964-04fa6f46f4aa?auto=format&fit=crop&w=900&q=80',
+          alt: 'Detal ściany z mikrocementu we wnętrzu premium'
+        },
+        {
+          src: 'https://images.unsplash.com/photo-1600566753151-384129cf4e3e?auto=format&fit=crop&w=900&q=80',
+          alt: 'Luksusowa łazienka z bezspoinowym wykończeniem'
+        },
+        {
+          src: 'https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=900&q=80',
+          alt: 'Nowoczesna strefa dzienna z eleganckimi powierzchniami'
+        },
+        {
+          src: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80',
+          alt: 'Minimalistyczny korytarz z fakturowanymi ścianami'
+        },
+        {
+          src: 'https://images.unsplash.com/photo-1616593969747-4797dc75033e?auto=format&fit=crop&w=900&q=80',
+          alt: 'Nowoczesna kompozycja podłóg i ścian z mikrocementu'
+        }
+      ]
     },
     contact: {
       title: 'Stwórzmy Coś Wyjątkowego',
