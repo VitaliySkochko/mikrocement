@@ -80,3 +80,28 @@
   margin-top: 1rem;
   max-width: 40ch;
 }
+
+.form-message {
+  margin-top: 16px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.form-message.success {
+  color: #7fd6a6;
+}
+
+.form-message.error {
+  color: #ff6b6b;
+}
+
+.contact-link {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.contact-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}

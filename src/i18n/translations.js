@@ -166,7 +166,7 @@ export const translations = {
       title: 'Let’s Create Something Exceptional',
       text: 'Tell us about your project and receive a tailored recommendation.',
       button: 'Contact LUX MIKROCEMENT',
-      note: 'Email: contact@luxmikrocement.pl · Phone: +48 600 000 000'
+      note: 'E-mail: luxmikrocement@gmail.com · Tel: +48 573 271 700'
     },
     footer: '© LUX MIKROCEMENT. Premium microcement finishes in Poland.'
   },
@@ -337,7 +337,7 @@ export const translations = {
       title: 'Stwórzmy Coś Wyjątkowego',
       text: 'Opowiedz nam o projekcie i otrzymaj dopasowaną rekomendację.',
       button: 'Skontaktuj się z LUX MIKROCEMENT',
-      note: 'E-mail: contact@luxmikrocement.pl · Tel: +48 600 000 000'
+      note: 'E-mail: luxmikrocement@gmail.com · Tel: +48 573 271 700'
     },
     footer: '© LUX MIKROCEMENT. Premium wykończenia mikrocementowe w Polsce.'
   }
