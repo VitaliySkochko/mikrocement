@@ -75,22 +75,69 @@ body.menu-open {
 }
 
 .reveal {
+  --reveal-distance: 30px;
+  --reveal-scale: 0.985;
+  --reveal-duration: 950ms;
+  --reveal-ease: cubic-bezier(0.18, 0.84, 0.24, 1);
+  --reveal-base-delay: var(--reveal-delay, 0ms);
+  --reveal-stagger-step: var(--reveal-step, 90ms);
+  --reveal-order-index: var(--reveal-order, 0);
   opacity: 0;
-  transform: translate3d(0, 22px, 0);
+  transform: translate3d(0, var(--reveal-distance), 0) scale(var(--reveal-scale));
+  filter: blur(8px);
   transition:
-    opacity 620ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
-  transition-delay: var(--reveal-delay, 0ms);
-  will-change: opacity, transform;
+    opacity var(--reveal-duration) var(--reveal-ease),
+    transform var(--reveal-duration) var(--reveal-ease),
+    filter var(--reveal-duration) var(--reveal-ease);
+  transition-delay: calc(var(--reveal-base-delay) + (var(--reveal-order-index) * var(--reveal-stagger-step)));
+  will-change: opacity, transform, filter;
 }
 
 .reveal.is-visible {
   opacity: 1;
-  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.reveal[data-reveal='heading'] {
+  --reveal-distance: 24px;
+  --reveal-scale: 0.992;
+  --reveal-duration: 920ms;
+}
+
+.reveal[data-reveal='hero'] {
+  --reveal-distance: 36px;
+  --reveal-scale: 0.978;
+  --reveal-duration: 1100ms;
+}
+
+.reveal[data-reveal='text'] {
+  --reveal-distance: 22px;
+  --reveal-scale: 0.994;
+  --reveal-duration: 900ms;
+}
+
+.reveal[data-reveal='card'] {
+  --reveal-distance: 34px;
+  --reveal-scale: 0.98;
+  --reveal-duration: 980ms;
+}
+
+.reveal[data-reveal='image'],
+.reveal[data-reveal='gallery'] {
+  --reveal-distance: 28px;
+  --reveal-scale: 0.974;
+  --reveal-duration: 1120ms;
+}
+
+.reveal[data-reveal='cta'] {
+  --reveal-distance: 18px;
+  --reveal-scale: 0.995;
+  --reveal-duration: 860ms;
 }
 
 .reveal-stagger .btn:nth-child(2) {
-  transition-delay: 100ms;
+  transition-delay: calc(var(--reveal-base-delay) + 160ms);
 }
 
 .mobile-nav a.active {
@@ -101,6 +148,7 @@ body.menu-open {
   .reveal {
     opacity: 1;
     transform: none;
+    filter: none;
     transition: none;
   }
 

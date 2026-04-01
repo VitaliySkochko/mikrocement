@@ -28,8 +28,9 @@ export function ApproachSection({ approach }) {
             <article
               key={step.title}
               className={`approach-card reveal ${index % 2 ? 'approach-card-offset' : ''}`.trim()}
-              data-reveal
-              style={{ '--reveal-delay': `${index * 95}ms` }}
+              data-reveal="card"
+              data-reveal-group="approach-cards"
+              style={{ '--reveal-delay': '100ms', '--reveal-step': '120ms' }}
             >
               <div className="approach-card-glow" aria-hidden="true" />
               <div className="approach-card-header">

@@ -11,7 +11,7 @@ export function CoverageSection({ coverage }) {
       className="coverage-section"
     >
       <div className="coverage-layout">
-        <article className="coverage-content reveal" data-reveal>
+        <article className="coverage-content reveal" data-reveal="text">
           <p className="coverage-eyebrow">{coverage.eyebrow}</p>
           <p className="coverage-lead">{coverage.lead}</p>
 
@@ -20,8 +20,9 @@ export function CoverageSection({ coverage }) {
               <li
                 key={item}
                 className="reveal"
-                data-reveal
-                style={{ '--reveal-delay': `${120 + index * 80}ms` }}
+                data-reveal="text"
+                data-reveal-group="coverage-points"
+                style={{ '--reveal-delay': '180ms', '--reveal-step': '95ms' }}
               >
                 <span className="coverage-dot" aria-hidden="true" />
                 <span>{item}</span>
@@ -30,7 +31,7 @@ export function CoverageSection({ coverage }) {
           </ul>
         </article>
 
-        <div className="coverage-media reveal" data-reveal style={{ '--reveal-delay': '110ms' }}>
+        <div className="coverage-media reveal" data-reveal="image" data-reveal-group="coverage-images" style={{ '--reveal-delay': '220ms', '--reveal-step': '120ms' }}>
           {coverage.images.map((image, index) => (
             <figure
               key={image.src}

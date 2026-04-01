@@ -21,7 +21,11 @@ export function ServicesSection({ services }) {
           return (
             <li
               key={`${service.title}-${index}`}
-              className={`service-accordion__item ${isOpen ? 'is-open' : ''}`}
+              className={`service-accordion__item reveal ${isOpen ? 'is-open' : ''}`}
+            
+              data-reveal="card"
+              data-reveal-group="service-items"
+              style={{ '--reveal-delay': '90ms', '--reveal-step': '110ms' }}
             >
               <button
                 type="button"
