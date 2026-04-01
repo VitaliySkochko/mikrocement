@@ -24,10 +24,10 @@ export default function App() {
     () => [
       { id: 'hero', label: t.nav.hero },
       { id: 'why', label: t.nav.why },
-      { id: 'services', label: t.nav.services },
       { id: 'gallery', label: t.nav.gallery },
       { id: 'approach', label: t.nav.approach },
       { id: 'coverage', label: t.nav.coverage },
+      { id: 'services', label: t.nav.services },
       { id: 'contact', label: t.nav.contact }
     ],
     [t]
@@ -100,10 +100,10 @@ export default function App() {
       <main>
         <HeroSection hero={t.hero} onNavClick={handleNavClick} />
         <WhyMicrocementSection why={t.why} />
-        <ServicesSection services={t.services} />
         <GallerySection gallery={t.gallery} />
         <ApproachSection approach={t.approach} />
         <CoverageSection coverage={t.coverage} />
+        <ServicesSection services={t.services} />
         <ContactSection contact={t.contact} />
       </main>
 
