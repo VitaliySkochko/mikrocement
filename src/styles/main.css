@@ -74,7 +74,16 @@ body.menu-open {
   scroll-margin-top: 110px;
 }
 
+/* ===== FIX FOR WHITE SCREEN ===== */
+/* За замовчуванням контент ВИДИМИЙ */
 .reveal {
+  opacity: 1;
+  transform: none;
+  will-change: transform, opacity;
+}
+
+/* Анімацію вмикаємо тільки після старту JS */
+html.js-ready .reveal {
   --reveal-distance: 22px;
   --reveal-scale: 0.992;
   --reveal-duration: 700ms;
@@ -91,43 +100,43 @@ body.menu-open {
   transition-delay: calc(var(--reveal-base-delay) + (var(--reveal-order-index) * var(--reveal-stagger-step)));
 }
 
-.reveal.is-visible {
+html.js-ready .reveal.is-visible {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1);
 }
 
-.reveal[data-reveal='heading'] {
+html.js-ready .reveal[data-reveal='heading'] {
   --reveal-distance: 24px;
   --reveal-scale: 0.992;
   --reveal-duration: 920ms;
 }
 
-.reveal[data-reveal='hero'] {
+html.js-ready .reveal[data-reveal='hero'] {
   --reveal-distance: 36px;
   --reveal-scale: 0.978;
   --reveal-duration: 1100ms;
 }
 
-.reveal[data-reveal='text'] {
+html.js-ready .reveal[data-reveal='text'] {
   --reveal-distance: 22px;
   --reveal-scale: 0.994;
   --reveal-duration: 900ms;
 }
 
-.reveal[data-reveal='card'] {
+html.js-ready .reveal[data-reveal='card'] {
   --reveal-distance: 34px;
   --reveal-scale: 0.98;
   --reveal-duration: 980ms;
 }
 
-.reveal[data-reveal='image'],
-.reveal[data-reveal='gallery'] {
+html.js-ready .reveal[data-reveal='image'],
+html.js-ready .reveal[data-reveal='gallery'] {
   --reveal-distance: 28px;
   --reveal-scale: 0.974;
   --reveal-duration: 1120ms;
 }
 
-.reveal[data-reveal='cta'] {
+html.js-ready .reveal[data-reveal='cta'] {
   --reveal-distance: 18px;
   --reveal-scale: 0.995;
   --reveal-duration: 860ms;
@@ -142,7 +151,9 @@ body.menu-open {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
+  .reveal,
+  html.js-ready .reveal,
+  html.js-ready .reveal.is-visible {
     opacity: 1;
     transform: none;
     filter: none;
@@ -205,7 +216,6 @@ body.menu-open {
     pointer-events: auto;
   }
 
-
   .card-offset,
   .card-offset:hover {
     transform: none;
@@ -240,7 +250,6 @@ body.menu-open {
     letter-spacing: 0.2em;
     font-size: 0.68rem;
   }
-
 
   .section {
     padding: 4.75rem 0;

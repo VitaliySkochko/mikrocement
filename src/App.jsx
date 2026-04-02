@@ -18,7 +18,7 @@ export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
-  const t = useMemo(() => translations[lang], [lang]);
+  const t = useMemo(() => translations[lang] || translations.pl, [lang]);
 
   const navItems = useMemo(
     () => [
@@ -27,7 +27,7 @@ export default function App() {
       { id: 'gallery', label: t.nav.gallery },
       { id: 'approach', label: t.nav.approach },
       { id: 'services', label: t.nav.services },
-      { id: 'coverage', label: t.nav.coverage },      
+      { id: 'coverage', label: t.nav.coverage },
       { id: 'contact', label: t.nav.contact }
     ],
     [t]
@@ -36,6 +36,11 @@ export default function App() {
   useEffect(() => {
     document.documentElement.lang = lang;
   }, [lang]);
+
+  useEffect(() => {
+    document.documentElement.classList.add('js-ready');
+    return () => document.documentElement.classList.remove('js-ready');
+  }, []);
 
   useEffect(() => {
     if (!isMobileMenuOpen) {
@@ -52,9 +57,7 @@ export default function App() {
 
   const scrollToSection = useCallback((sectionId) => {
     const section = document.getElementById(sectionId);
-    if (!section) {
-      return;
-    }
+    if (!section) return;
 
     const topbarHeight = document.querySelector('.topbar-wrap')?.offsetHeight ?? 0;
     const offsetTop = section.getBoundingClientRect().top + window.scrollY - topbarHeight - 18;
@@ -103,7 +106,7 @@ export default function App() {
         <GallerySection gallery={t.gallery} />
         <ApproachSection approach={t.approach} />
         <ServicesSection services={t.services} />
-        <CoverageSection coverage={t.coverage} />        
+        <CoverageSection coverage={t.coverage} />
         <ContactSection contact={t.contact} />
       </main>
 

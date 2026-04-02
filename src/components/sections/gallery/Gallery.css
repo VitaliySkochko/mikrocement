@@ -28,6 +28,7 @@
   margin: 0;
   aspect-ratio: 16 / 9;
   overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .gallery-slide img {

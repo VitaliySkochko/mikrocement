@@ -31,22 +31,43 @@ const icons = [
 
 export function WhyMicrocementSection({ why }) {
   return (
-    <Section id="why" title={why.title} intro={why.intro} className="why-microcement">
+    <Section
+      id="why"
+      title={why?.title || ''}
+      intro={why?.intro || ''}
+      className="why-microcement"
+    >
       <div className="why-microcement-grid" role="list">
-        {why.items.map((item, index) => (
+        {(why?.items || []).map((item, index) => (
           <article
-            key={item.title}
-            className="why-microcement-card reveal"
-            data-reveal="card"
-            data-reveal-group="why-cards"
+            key={item.title || index}
+            className="why-microcement-card"
             role="listitem"
-            style={{ '--reveal-delay': '80ms', '--reveal-step': '130ms' }}
           >
-            <span className="why-microcement-icon" aria-hidden="true">
+            <span
+              className="why-microcement-icon reveal"
+              aria-hidden="true"
+              data-reveal="card"
+              style={{ '--reveal-order': index }}
+            >
               {icons[index % icons.length]}
             </span>
-            <h3>{item.title}</h3>
-            <p>{item.text}</p>
+
+            <h3
+              className="reveal"
+              data-reveal="heading"
+              style={{ '--reveal-order': index }}
+            >
+              {item.title}
+            </h3>
+
+            <p
+              className="reveal"
+              data-reveal="text"
+              style={{ '--reveal-order': index }}
+            >
+              {item.text}
+            </p>
           </article>
         ))}
       </div>

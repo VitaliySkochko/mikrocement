@@ -40,12 +40,20 @@ export function ContactSection({ contact, lang = "pl" }) {
   return (
     <section id="contact" className="section section-highlight">
       <div className="container contact-wrap">
-        <div className="contact-copy reveal" data-reveal="text">
-          <p className="hero-label">Private Design Consultation</p>
-          <h2>{contact.title}</h2>
-          <p>{contact.text}</p>
+        <div className="contact-copy">
+          <p className="hero-label reveal" data-reveal="text">
+            Private Design Consultation
+          </p>
 
-          <p className="contact-note">
+          <h2 className="reveal" data-reveal="heading" style={{ "--reveal-order": 1 }}>
+            {contact?.title || ""}
+          </h2>
+
+          <p className="reveal" data-reveal="text" style={{ "--reveal-order": 2 }}>
+            {contact?.text || ""}
+          </p>
+
+          <p className="contact-note reveal" data-reveal="text" style={{ "--reveal-order": 3 }}>
             E-mail:{" "}
             <a href="mailto:luxmikrocement@gmail.com" className="contact-link">
               luxmikrocement@gmail.com
@@ -58,13 +66,15 @@ export function ContactSection({ contact, lang = "pl" }) {
           </p>
         </div>
 
-        <form
-          className="contact-form reveal"
-          onSubmit={sendEmail}
-          data-reveal="cta"
-          style={{ "--reveal-delay": "160ms" }}
-        >
-          <label htmlFor="contact-name">Name</label>
+        <form className="contact-form" onSubmit={sendEmail}>
+          <label
+            htmlFor="contact-name"
+            className="reveal"
+            data-reveal="text"
+            style={{ "--reveal-order": 0 }}
+          >
+            Name
+          </label>
           <input
             id="contact-name"
             name="name"
@@ -72,9 +82,19 @@ export function ContactSection({ contact, lang = "pl" }) {
             placeholder="Your full name"
             autoComplete="name"
             required
+            className="reveal"
+            data-reveal="cta"
+            style={{ "--reveal-order": 1 }}
           />
 
-          <label htmlFor="contact-phone">Phone</label>
+          <label
+            htmlFor="contact-phone"
+            className="reveal"
+            data-reveal="text"
+            style={{ "--reveal-order": 2 }}
+          >
+            Phone
+          </label>
           <input
             id="contact-phone"
             name="phone"
@@ -82,9 +102,19 @@ export function ContactSection({ contact, lang = "pl" }) {
             placeholder="+48 000 000 000"
             autoComplete="tel"
             required
+            className="reveal"
+            data-reveal="cta"
+            style={{ "--reveal-order": 3 }}
           />
 
-          <label htmlFor="contact-email">Email</label>
+          <label
+            htmlFor="contact-email"
+            className="reveal"
+            data-reveal="text"
+            style={{ "--reveal-order": 4 }}
+          >
+            Email
+          </label>
           <input
             id="contact-email"
             name="email"
@@ -92,9 +122,19 @@ export function ContactSection({ contact, lang = "pl" }) {
             placeholder="you@example.com"
             autoComplete="email"
             required
+            className="reveal"
+            data-reveal="cta"
+            style={{ "--reveal-order": 5 }}
           />
 
-          <label htmlFor="contact-message">Message</label>
+          <label
+            htmlFor="contact-message"
+            className="reveal"
+            data-reveal="text"
+            style={{ "--reveal-order": 6 }}
+          >
+            Message
+          </label>
           <textarea
             id="contact-message"
             name="message"
@@ -102,18 +142,30 @@ export function ContactSection({ contact, lang = "pl" }) {
             placeholder="Tell us about your project..."
             autoComplete="off"
             required
+            className="reveal"
+            data-reveal="cta"
+            style={{ "--reveal-order": 7 }}
           />
 
-          <button type="submit" className="btn btn-primary">
+          <button
+            type="submit"
+            className="btn btn-primary reveal"
+            data-reveal="cta"
+            style={{ "--reveal-order": 8 }}
+          >
             Request a Quote
           </button>
 
           {status === "success" && (
-            <div className="form-message success">{messages.success[lang]}</div>
+            <div className="form-message success">
+              {messages.success[lang] || messages.success.pl}
+            </div>
           )}
 
           {status === "error" && (
-            <div className="form-message error">{messages.error[lang]}</div>
+            <div className="form-message error">
+              {messages.error[lang] || messages.error.pl}
+            </div>
           )}
         </form>
       </div>

@@ -23,7 +23,7 @@
   background-position: center;
   background-repeat: no-repeat;
   transform: scale(1.01);
-  animation: heroImageZoom 1.8s ease-out both;
+  animation: heroImageZoom 1.2s ease-out both;
 }
 
 .hero::after {
@@ -86,58 +86,49 @@
   margin-top: 2.3rem;
 }
 
-/* staged entrance animation */
-
+/* safer staged animation */
 .hero-animate {
-  opacity: 0;
-  transform: translateY(32px);
-  filter: blur(8px);
-  animation: heroFadeUp 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  will-change: transform, opacity, filter;
+  opacity: 1;
+  transform: translateY(0);
+  animation: heroFadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: transform, opacity;
 }
 
 .hero-animate-1 {
-  animation-delay: 0.12s;
+  animation-delay: 0.08s;
 }
 
 .hero-animate-2 {
-  animation-delay: 0.28s;
+  animation-delay: 0.16s;
 }
 
 .hero-animate-3 {
-  animation-delay: 0.46s;
+  animation-delay: 0.24s;
 }
 
 .hero-animate-4 {
-  animation-delay: 0.68s;
+  animation-delay: 0.32s;
 }
 
 .hero-animate-5 {
-  animation-delay: 0.9s;
+  animation-delay: 0.4s;
 }
 
 @keyframes heroFadeUp {
   0% {
-    opacity: 0;
-    transform: translateY(32px);
-    filter: blur(8px);
-  }
-  60% {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
+    opacity: 0.01;
+    transform: translateY(18px);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0);
   }
 }
 
 @keyframes heroImageZoom {
   0% {
-    transform: scale(1.08);
-    opacity: 0;
+    transform: scale(1.04);
+    opacity: 0.88;
   }
   100% {
     transform: scale(1.01);

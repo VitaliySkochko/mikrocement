@@ -28,7 +28,11 @@ export function GallerySection({ gallery }) {
   ];
 
   return (
-    <Section id="gallery" title={gallery.title} intro={gallery.intro}>
+    <Section
+      id="gallery"
+      title={gallery?.title || ''}
+      intro={gallery?.intro || ''}
+    >
       <Gallery items={items} />
     </Section>
   );
