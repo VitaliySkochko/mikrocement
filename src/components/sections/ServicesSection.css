@@ -142,21 +142,6 @@
   transform: translate(-50%, -50%) scaleY(0);
 }
 
-.service-accordion__body {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 460ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.service-accordion__body.is-open {
-  grid-template-rows: 1fr;
-}
-
-.service-accordion__body-inner {
-  overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
 .service-accordion__body p {
   margin: 0;
   color: var(--muted);

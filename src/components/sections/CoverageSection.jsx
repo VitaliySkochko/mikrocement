@@ -23,9 +23,7 @@ export function CoverageSection({ coverage }) {
           {images.map((image, index) => (
             <figure
               key={index}
-              className={`coverage-photo coverage-photo-${index + 1} reveal`}
-              data-reveal="image"
-              style={{ '--reveal-order': index }}
+              className={`coverage-photo coverage-photo-${index + 1}`}
             >
               <img
                 src={image.src}
@@ -38,21 +36,13 @@ export function CoverageSection({ coverage }) {
         </div>
 
         <article className="coverage-content">
-          <h2
-            className="coverage-article-title reveal"
-            data-reveal="heading"
-          >
+          <h2 className="coverage-article-title">
             {coverage?.title || ''}
           </h2>
 
           <div className="coverage-paragraphs">
             {paragraphs.map((paragraph, index) => (
-              <p
-                key={index}
-                className="reveal"
-                data-reveal="text"
-                style={{ '--reveal-order': index }}
-              >
+              <p key={index}>
                 {paragraph}
               </p>
             ))}

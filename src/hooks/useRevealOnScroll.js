@@ -7,9 +7,7 @@ function applyStaggerMetadata(elements) {
 
   elements.forEach((element) => {
     const groupName = element.dataset.revealGroup;
-    if (!groupName) {
-      return;
-    }
+    if (!groupName) return;
 
     if (!groups.has(groupName)) {
       groups.set(groupName, []);
@@ -38,23 +36,21 @@ export function useRevealOnScroll(lang) {
       revealElements.forEach((element) => {
         element.classList.add('is-visible');
       });
-      return undefined;
+      return;
     }
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
-            return;
-          }
+          if (!entry.isIntersecting) return;
 
           entry.target.classList.add('is-visible');
           observer.unobserve(entry.target);
         });
       },
       {
-        threshold: 0.16,
-        rootMargin: '0px 0px -10% 0px'
+        threshold: 0.01,
+        rootMargin: '0px 0px 12% 0px',
       }
     );
 
