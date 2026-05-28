@@ -111,3 +111,95 @@
     border-radius: 16px;
   }
 }
+
+html.js-ready .coverage-media.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+html.js-ready .coverage-media.reveal .coverage-photo {
+  opacity: 0;
+  transform: translate3d(-72px, 0, 0) scale(0.96);
+  transition:
+    opacity 850ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 950ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--coverage-delay, 0ms);
+}
+
+html.js-ready .coverage-media.reveal.is-visible .coverage-photo {
+  opacity: 1;
+}
+
+html.js-ready .coverage-media.reveal.is-visible .coverage-photo-1 {
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+html.js-ready .coverage-media.reveal.is-visible .coverage-photo-2 {
+  transform: translate3d(16px, 0, 0) scale(1);
+}
+
+html.js-ready .coverage-media.reveal.is-visible .coverage-photo-3 {
+  transform: translate3d(32px, 0, 0) scale(1);
+}
+
+html.js-ready .coverage-content.reveal {
+  opacity: 0;
+  transform: translate3d(72px, 0, 0);
+  transition:
+    opacity 900ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1000ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 160ms;
+}
+
+html.js-ready .coverage-content.reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+html.js-ready .coverage-content.reveal .coverage-article-title,
+html.js-ready .coverage-content.reveal .coverage-paragraphs p {
+  opacity: 0;
+  transform: translate3d(28px, 0, 0);
+  transition:
+    opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 760ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.js-ready .coverage-content.reveal.is-visible .coverage-article-title {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 260ms;
+}
+
+html.js-ready .coverage-content.reveal.is-visible .coverage-paragraphs p {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: var(--coverage-text-delay, 360ms);
+}
+
+@media (max-width: 980px) {
+  html.js-ready .coverage-media.reveal.is-visible .coverage-photo-2,
+  html.js-ready .coverage-media.reveal.is-visible .coverage-photo-3 {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  html.js-ready .coverage-content.reveal {
+    transform: translate3d(0, 42px, 0);
+  }
+
+  html.js-ready .coverage-content.reveal .coverage-article-title,
+  html.js-ready .coverage-content.reveal .coverage-paragraphs p {
+    transform: translate3d(0, 24px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js-ready .coverage-media.reveal .coverage-photo,
+  html.js-ready .coverage-content.reveal,
+  html.js-ready .coverage-content.reveal .coverage-article-title,
+  html.js-ready .coverage-content.reveal .coverage-paragraphs p {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

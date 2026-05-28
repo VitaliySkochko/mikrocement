@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import './Gallery.css';
 
 export function Gallery({ items = [] }) {
@@ -10,41 +10,52 @@ export function Gallery({ items = [] }) {
     return ((activeIndex + 1) / totalItems) * 100;
   }, [activeIndex, totalItems]);
 
-  const goToSlide = (index) => {
-    if (!totalItems) return;
-    const safeIndex = (index + totalItems) % totalItems;
-    setActiveIndex(safeIndex);
-  };
+  const goToSlide = useCallback(
+    (index) => {
+      if (!totalItems) return;
+      setActiveIndex((index + totalItems) % totalItems);
+    },
+    [totalItems]
+  );
 
-  const handlePrev = () => goToSlide(activeIndex - 1);
-  const handleNext = () => goToSlide(activeIndex + 1);
+  const handlePrev = useCallback(() => {
+    goToSlide(activeIndex - 1);
+  }, [activeIndex, goToSlide]);
 
-  if (!totalItems) {
-    return null;
-  }
+  const handleNext = useCallback(() => {
+    goToSlide(activeIndex + 1);
+  }, [activeIndex, goToSlide]);
+
+  if (!totalItems) return null;
 
   return (
     <div className="gallery">
       <div className="gallery-viewport" aria-live="polite">
-        <div
-          className="gallery-track"
-          style={{ transform: `translate3d(-${activeIndex * 100}%, 0, 0)` }}
-        >
-          {items.map((item, index) => (
-            <figure
-              className="gallery-slide"
-              key={item.image}
-              aria-hidden={index !== activeIndex}
-            >
-              <img
-                src={item.image}
-                alt={item.title}
-                loading={index === 0 ? 'eager' : 'lazy'}
-                fetchPriority={index === 0 ? 'high' : 'auto'}
-                decoding="async"
-              />
-            </figure>
-          ))}
+        <div className="gallery-track">
+          {items.map((item, index) => {
+            const isActive = index === activeIndex;
+            const isPrev = index === (activeIndex - 1 + totalItems) % totalItems;
+            const isNext = index === (activeIndex + 1) % totalItems;
+            const shouldRenderImage = isActive || isPrev || isNext;
+
+            return (
+              <figure
+                className={`gallery-slide ${isActive ? 'is-active' : ''}`}
+                key={item.image}
+                aria-hidden={!isActive}
+              >
+                {shouldRenderImage && (
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    loading={isActive ? 'eager' : 'lazy'}
+                    fetchPriority={isActive ? 'high' : 'auto'}
+                    decoding="async"
+                  />
+                )}
+              </figure>
+            );
+          })}
         </div>
 
         <div className="gallery-overlay" aria-hidden="true" />

@@ -19,11 +19,15 @@ export function CoverageSection({ coverage }) {
   return (
     <Section id="coverage" title="" intro="" className="coverage-section">
       <div className="coverage-layout">
-        <div className="coverage-media">
+        <div
+          className="coverage-media reveal"
+          data-reveal="coverage-media"
+        >
           {images.map((image, index) => (
             <figure
               key={index}
               className={`coverage-photo coverage-photo-${index + 1}`}
+              style={{ '--coverage-delay': `${index * 120}ms` }}
             >
               <img
                 src={image.src}
@@ -35,14 +39,20 @@ export function CoverageSection({ coverage }) {
           ))}
         </div>
 
-        <article className="coverage-content">
+        <article
+          className="coverage-content reveal"
+          data-reveal="coverage-content"
+        >
           <h2 className="coverage-article-title">
             {coverage?.title || ''}
           </h2>
 
           <div className="coverage-paragraphs">
             {paragraphs.map((paragraph, index) => (
-              <p key={index}>
+              <p
+                key={index}
+                style={{ '--coverage-text-delay': `${220 + index * 90}ms` }}
+              >
                 {paragraph}
               </p>
             ))}
