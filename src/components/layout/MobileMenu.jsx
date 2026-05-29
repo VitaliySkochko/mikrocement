@@ -1,5 +1,6 @@
 import React from 'react';
 import { LanguageSwitcher } from '../ui/LanguageSwitcher';
+import logo from '../assets/images/logo.png';
 import './MobileMenu.css';
 
 export function MobileMenu({ isOpen, navItems, activeSection, onNavClick, onClose, lang, setLang, labels }) {
@@ -12,7 +13,13 @@ export function MobileMenu({ isOpen, navItems, activeSection, onNavClick, onClos
       aria-label="Mobile navigation"
     >
       <div className="mobile-menu-header container">
-        <span className="brand">LUX MIKROCEMENT</span>
+        <div className="mobile-brand">
+  <img
+    src={logo}
+    alt="Lux Mikrocement"
+    className="mobile-brand-logo"
+  />
+</div>
         <button type="button" className="mobile-menu-close" onClick={onClose} aria-label="Close menu">
           ×
         </button>

@@ -53,7 +53,7 @@ export default function App() {
   }, [isMobileMenuOpen]);
 
   useRevealOnScroll(lang);
-  // useActiveSection(navItems, setActiveSection);
+  useActiveSection(navItems, setActiveSection);
 
   const scrollToSection = useCallback((sectionId) => {
     const section = document.getElementById(sectionId);

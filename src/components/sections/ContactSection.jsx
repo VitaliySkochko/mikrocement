@@ -60,8 +60,8 @@ export function ContactSection({ contact, lang = "pl" }) {
             </a>
             <br />
             Tel:{" "}
-            <a href="tel:+48573271700" className="contact-link">
-              +48 573 271 700
+            <a href="tel:+48793320679" className="contact-link">
+              +48 793 320 679
             </a>
           </p>
         </div>

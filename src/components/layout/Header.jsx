@@ -1,12 +1,33 @@
 import React from 'react';
 import { LanguageSwitcher } from '../ui/LanguageSwitcher';
+import logo from '../assets/images/logo.png';
 import './Header.css';
 
-export function Header({ navItems, activeSection, onNavClick, lang, setLang, labels, isMobileMenuOpen, onToggleMenu }) {
+export function Header({
+  navItems,
+  activeSection,
+  onNavClick,
+  lang,
+  setLang,
+  labels,
+  isMobileMenuOpen,
+  onToggleMenu,
+}) {
   return (
     <header className="topbar-wrap">
       <div className="topbar container">
-        <span className="brand">LUX MIKROCEMENT</span>
+        <a
+          href="#hero"
+          className="brand-link"
+          onClick={(event) => onNavClick(event, 'hero')}
+        >
+          <img
+            src={logo}
+            alt="Lux Mikrocement"
+            className="brand-logo"
+          />
+        </a>
+
         <nav className="nav nav-desktop">
           {navItems.map((item) => (
             <a
@@ -19,7 +40,14 @@ export function Header({ navItems, activeSection, onNavClick, lang, setLang, lab
             </a>
           ))}
         </nav>
-        <LanguageSwitcher currentLang={lang} onChange={setLang} labels={labels} className="desktop-language-switcher" />
+
+        <LanguageSwitcher
+          currentLang={lang}
+          onChange={setLang}
+          labels={labels}
+          className="desktop-language-switcher"
+        />
+
         <button
           type="button"
           className={`mobile-menu-toggle ${isMobileMenuOpen ? 'active' : ''}`}
