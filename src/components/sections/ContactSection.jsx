@@ -2,8 +2,22 @@ import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import "./ContactSection.css";
 
+// Keep the reveal guard across component remounts until the page is reloaded.
+let phoneRevealedThisPage = false;
+
 export function ContactSection({ contact, lang = "pl" }) {
   const [status, setStatus] = useState(null);
+  const [isPhoneVisible, setIsPhoneVisible] = useState(phoneRevealedThisPage);
+
+  const revealPhone = () => {
+    setIsPhoneVisible(true);
+    if (phoneRevealedThisPage) return;
+    phoneRevealedThisPage = true;
+
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', 'Lead');
+    }
+  };
 
   const messages = {
     success: {
@@ -59,10 +73,15 @@ export function ContactSection({ contact, lang = "pl" }) {
               luxmikrocement@gmail.com
             </a>
             <br />
-            Tel:{" "}
-            <a href="tel:+48793320679" className="contact-link">
-              +48 793 320 679
-            </a>
+            {isPhoneVisible ? (
+              <a href="tel:+48793320679" className="contact-phone contact-phone-number">
+                +48 793 320 679
+              </a>
+            ) : (
+              <button type="button" className="btn btn-primary contact-phone contact-phone-reveal" onClick={revealPhone}>
+                Pokaż numer telefonu
+              </button>
+            )}
           </p>
         </div>
 
