@@ -1,3 +1,4 @@
+import { trackEvent, trackPageView } from './firebase/analytics';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Header } from './components/layout/Header';
 import { MobileMenu } from './components/layout/MobileMenu';
@@ -14,6 +15,8 @@ import { useActiveSection } from './hooks/useActiveSection';
 import { translations } from './i18n/translations';
 
 export default function App() {
+  useEffect(() => { trackPageView(); }, []);
+
   const [lang, setLang] = useState('pl');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
@@ -70,6 +73,7 @@ export default function App() {
   const handleNavClick = useCallback(
     (event, sectionId, onNavigate) => {
       event.preventDefault();
+      if (sectionId === 'contact') trackEvent('contact_clicked');
       scrollToSection(sectionId);
       onNavigate?.();
     },

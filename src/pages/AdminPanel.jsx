@@ -106,6 +106,8 @@ export default function AdminPanel() {
               <div key={item.id} style={styles.galleryItem}>
                 <img
                   src={item.image}
+                  loading="lazy"
+                  decoding="async"
                   alt={item.title || "Gallery image"}
                   style={styles.image}
                 />

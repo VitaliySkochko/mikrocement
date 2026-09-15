@@ -32,7 +32,7 @@ export function useRevealOnScroll(lang) {
 
     applyStaggerMetadata(revealElements);
 
-    if (reduceMotion) {
+    if (reduceMotion || !('IntersectionObserver' in window)) {
       revealElements.forEach((element) => {
         element.classList.add('is-visible');
       });
@@ -49,8 +49,10 @@ export function useRevealOnScroll(lang) {
         });
       },
       {
+        // Start when the section reaches the usable viewport, below the sticky header.
+        // A small threshold works for both short and very tall sections.
         threshold: 0.01,
-        rootMargin: '0px 0px 12% 0px',
+        rootMargin: '0px 0px -15% 0px',
       }
     );
 

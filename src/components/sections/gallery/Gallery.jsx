@@ -1,8 +1,10 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { trackEvent } from '../../../firebase/analytics';
 import './Gallery.css';
 
 export function Gallery({ items = [] }) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const galleryRef = useRef(null);
   const totalItems = items.length;
 
   const progress = useMemo(() => {
@@ -11,25 +13,51 @@ export function Gallery({ items = [] }) {
   }, [activeIndex, totalItems]);
 
   const goToSlide = useCallback(
-    (index) => {
+    (index, direction = null) => {
       if (!totalItems) return;
       setActiveIndex((index + totalItems) % totalItems);
+      if (direction === 'next') trackEvent('gallery_next');
+      if (direction === 'previous') trackEvent('gallery_previous');
     },
     [totalItems]
   );
 
   const handlePrev = useCallback(() => {
-    goToSlide(activeIndex - 1);
+    goToSlide(activeIndex - 1, 'previous');
   }, [activeIndex, goToSlide]);
 
   const handleNext = useCallback(() => {
-    goToSlide(activeIndex + 1);
+    goToSlide(activeIndex + 1, 'next');
   }, [activeIndex, goToSlide]);
+
+  useEffect(() => {
+    const gallery = galleryRef.current;
+    if (!gallery) return undefined;
+    const onKeyDown = (event) => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      const active = document.activeElement;
+      const inViewport = gallery.getBoundingClientRect().top < window.innerHeight &&
+        gallery.getBoundingClientRect().bottom > 0;
+      if (!inViewport && !gallery.contains(active)) return;
+      event.preventDefault();
+      event.key === 'ArrowLeft' ? handlePrev() : handleNext();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [handleNext, handlePrev]);
+
+  const touchStart = useRef(null);
 
   if (!totalItems) return null;
 
   return (
-    <div className="gallery">
+    <div className="gallery" ref={galleryRef} tabIndex="0" onTouchStart={(event) => { touchStart.current = event.touches[0].clientX; }} onTouchEnd={(event) => {
+      if (touchStart.current == null) return;
+      const distance = event.changedTouches[0].clientX - touchStart.current;
+      touchStart.current = null;
+      if (Math.abs(distance) < 45) return;
+      distance < 0 ? handleNext() : handlePrev();
+    }}>
       <div className="gallery-viewport" aria-live="polite">
         <div className="gallery-track">
           {items.map((item, index) => {
@@ -47,9 +75,12 @@ export function Gallery({ items = [] }) {
                 {shouldRenderImage && (
                   <img
                     src={item.image}
+                    srcSet={item.srcSet}
+                    sizes="(max-width: 768px) 180vw, (max-width: 1283px) 92vw, 1180px"
+                    width={item.width}
+                    height={item.height}
                     alt={item.title}
                     loading={isActive ? 'eager' : 'lazy'}
-                    fetchPriority={isActive ? 'high' : 'auto'}
                     decoding="async"
                   />
                 )}
@@ -64,7 +95,7 @@ export function Gallery({ items = [] }) {
           type="button"
           className="gallery-control gallery-control-prev"
           onClick={handlePrev}
-          aria-label="Previous image"
+          aria-label="Poprzednie zdjęcie"
         >
           <span>‹</span>
         </button>
@@ -73,7 +104,7 @@ export function Gallery({ items = [] }) {
           type="button"
           className="gallery-control gallery-control-next"
           onClick={handleNext}
-          aria-label="Next image"
+          aria-label="Następne zdjęcie"
         >
           <span>›</span>
         </button>
@@ -92,7 +123,7 @@ export function Gallery({ items = [] }) {
               role="tab"
               className={`gallery-dot ${index === activeIndex ? 'is-active' : ''}`}
               aria-selected={index === activeIndex}
-              aria-label={`Go to image ${index + 1}`}
+              aria-label={`Przejdź do zdjęcia ${index + 1}`}
               onClick={() => goToSlide(index)}
             />
           ))}

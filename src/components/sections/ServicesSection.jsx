@@ -1,16 +1,48 @@
-import React, { useState } from 'react';
-import { Section } from '../layout/Section';
+import React, { useLayoutEffect, useRef, useState } from 'react';
+import '../layout/Section.css';
+import '../ui/SectionTitle.css';
 import './ServicesSection.css';
+import { trackEvent } from '../../firebase/analytics';
 
 export function ServicesSection({ services }) {
   const [openIndex, setOpenIndex] = useState(0);
+  const sectionRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const section = sectionRef.current;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+        !('IntersectionObserver' in window)) {
+      section.classList.add('is-visible');
+      return;
+    }
+
+    section.classList.add('services-ready');
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        section.classList.add('is-visible');
+        observer.unobserve(section);
+      }
+    }, { threshold: 0.01, rootMargin: '0px 0px -15% 0px' });
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
   const handleToggle = (index) => {
+    if (openIndex !== index) {
+      const service = services.items[index];
+      trackEvent('service_opened', {
+        service_name: typeof service === 'string' ? service : service.title,
+      });
+    }
     setOpenIndex((currentIndex) => (currentIndex === index ? -1 : index));
   };
 
   return (
-    <Section id="services" title={services.title}>
+    <section id="services" ref={sectionRef} className="section services-section">
+      <div className="container">
+        <div className="section-heading">
+          <h2 className="services-enter services-enter-heading">{services.title}</h2>
+        </div>
       <ul className="service-accordion" role="list">
         {services.items.map((item, index) => {
           const service =
@@ -21,6 +53,10 @@ export function ServicesSection({ services }) {
           return (
             <li
               key={`${service.title}-${index}`}
+              className="services-enter"
+              style={{ '--services-delay': `${150 + index * 130}ms` }}
+            >
+              <div
               className={`service-accordion__item ${isOpen ? 'is-open' : ''}`}
             >
               <button
@@ -54,10 +90,12 @@ export function ServicesSection({ services }) {
                   {service.text ? <p>{service.text}</p> : null}
                 </div>
               </div>
+              </div>
             </li>
           );
         })}
       </ul>
-    </Section>
+      </div>
+    </section>
   );
 }

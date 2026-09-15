@@ -1,6 +1,6 @@
 import React from 'react';
 import { LanguageSwitcher } from '../ui/LanguageSwitcher';
-import logo from '../assets/images/logo.png';
+import logo from '../assets/images/logo.webp';
 import './MobileMenu.css';
 
 export function MobileMenu({ isOpen, navItems, activeSection, onNavClick, onClose, lang, setLang, labels }) {
@@ -16,6 +16,8 @@ export function MobileMenu({ isOpen, navItems, activeSection, onNavClick, onClos
         <div className="mobile-brand">
   <img
     src={logo}
+    decoding="async"
+    style={{ aspectRatio: "3 / 2" }}
     alt="Lux Mikrocement"
     className="mobile-brand-logo"
   />

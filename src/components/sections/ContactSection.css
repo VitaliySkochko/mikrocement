@@ -100,6 +100,18 @@
   text-decoration: underline;
 }
 
+.contact-facebook-link {
+  transition: color 220ms ease, opacity 220ms ease, text-decoration-color 220ms ease;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.2em;
+}
+
+.contact-facebook-link:hover {
+  color: var(--gold-soft, #c9a266);
+  opacity: 0.92;
+  text-decoration-color: currentColor;
+}
+
 .contact-note .contact-phone {
   display: inline-flex;
   align-items: center;

@@ -191,3 +191,50 @@
     transition: none;
   }
 }
+/* Entrance lives on the list wrapper, separate from accordion and hover effects. */
+.services-enter {
+  --services-distance: 30px;
+  --services-duration: 750ms;
+  --services-delay: 0ms;
+}
+
+.services-enter-heading {
+  --services-distance: 25px;
+  --services-duration: 800ms;
+}
+
+.services-ready:not(.is-visible) .services-enter {
+  opacity: 0;
+  transform: translateY(var(--services-distance));
+}
+
+.services-ready.is-visible .services-enter {
+  animation: servicesEntrance var(--services-duration) cubic-bezier(0.22, 1, 0.36, 1)
+    var(--services-delay) backwards;
+}
+
+@keyframes servicesEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(var(--services-distance));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 680px) {
+  .services-enter { --services-distance: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-section .services-enter,
+  .services-ready:not(.is-visible) .services-enter,
+  .services-ready.is-visible .services-enter {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    animation: none;
+  }
+}

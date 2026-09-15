@@ -169,3 +169,66 @@
     transition: none;
   }
 }
+/* A single section observer starts this sequence; no nested scroll reveals. */
+.why-microcement {
+  --why-card-distance: 70px;
+  overflow-x: clip;
+}
+
+.why-enter {
+  --why-x: 0px;
+  --why-y: 0px;
+  --why-delay: 0ms;
+  --why-duration: 850ms;
+}
+
+.why-enter-title {
+  --why-y: 25px;
+  --why-duration: 800ms;
+}
+
+.why-enter-intro {
+  --why-y: 20px;
+  --why-delay: 150ms;
+  --why-duration: 750ms;
+}
+
+.why-microcement-card.why-enter {
+  --why-x: var(--why-card-distance);
+}
+
+.why-ready:not(.is-visible) .why-enter {
+  opacity: 0;
+  transform: translate(var(--why-x), var(--why-y));
+}
+
+.why-ready.is-visible .why-enter {
+  animation: whyEntrance var(--why-duration) cubic-bezier(0.22, 1, 0.36, 1)
+    var(--why-delay) backwards;
+}
+
+@keyframes whyEntrance {
+  from {
+    opacity: 0;
+    transform: translate(var(--why-x), var(--why-y));
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@media (max-width: 980px) {
+  .why-microcement { --why-card-distance: 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .why-microcement .why-enter,
+  .why-ready:not(.is-visible) .why-enter,
+  .why-ready.is-visible .why-enter {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+}

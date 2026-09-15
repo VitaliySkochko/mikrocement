@@ -1,6 +1,6 @@
 import React from 'react';
 import { LanguageSwitcher } from '../ui/LanguageSwitcher';
-import logo from '../assets/images/logo.png';
+import logo from '../assets/images/logo.webp';
 import './Header.css';
 
 export function Header({
@@ -23,6 +23,8 @@ export function Header({
         >
           <img
             src={logo}
+    decoding="async"
+    style={{ aspectRatio: "3 / 2" }}
             alt="Lux Mikrocement"
             className="brand-logo"
           />

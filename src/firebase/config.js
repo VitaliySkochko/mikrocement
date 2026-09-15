@@ -9,10 +9,11 @@ const firebaseConfig = {
   projectId: "luxmikrocement-8b6da",
   storageBucket: "luxmikrocement-8b6da.firebasestorage.app",
   messagingSenderId: "157165179124",
+  measurementId: "G-PRT6CM35EQ",
   appId: "1:157165179124:web:0c92a9a961cf48c28d0ea1",
 };
 
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
 export const db = getFirestore(app);

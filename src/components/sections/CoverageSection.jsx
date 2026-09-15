@@ -1,15 +1,13 @@
 import React from 'react';
 import { Section } from '../layout/Section';
-import img1 from '../assets/images/gallery2.jpg';
-import img2 from '../assets/images/gallery6.jpg';
-import img3 from '../assets/images/gallery7.jpg';
+import { galleryImages } from '../assets/images/responsive';
 import './CoverageSection.css';
 
 export function CoverageSection({ coverage }) {
   const images = [
-    { src: img1, alt: 'Microcement interior living room' },
-    { src: img2, alt: 'Modern microcement floor interior' },
-    { src: img3, alt: 'Luxury microcement wall and floor finish' }
+    { ...galleryImages.gallery2, alt: 'Microcement interior living room' },
+    { ...galleryImages.gallery6, alt: 'Modern microcement floor interior' },
+    { ...galleryImages.gallery7, alt: 'Luxury microcement wall and floor finish' }
   ];
 
   const paragraphs = Array.isArray(coverage?.paragraphs)
@@ -27,12 +25,16 @@ export function CoverageSection({ coverage }) {
             <figure
               key={index}
               className={`coverage-photo coverage-photo-${index + 1}`}
-              style={{ '--coverage-delay': `${index * 120}ms` }}
+              style={{ '--coverage-delay': `${index * 190}ms` }}
             >
               <img
                 src={image.src}
+                srcSet={image.srcSet}
+                sizes="(max-width: 640px) 94vw, (max-width: 980px) 720px, 280px"
+                width={image.width}
+                height={image.height}
                 alt={image.alt}
-                loading={index === 0 ? 'eager' : 'lazy'}
+                loading="lazy"
                 decoding="async"
               />
             </figure>
@@ -51,7 +53,7 @@ export function CoverageSection({ coverage }) {
             {paragraphs.map((paragraph, index) => (
               <p
                 key={index}
-                style={{ '--coverage-text-delay': `${220 + index * 90}ms` }}
+                style={{ '--coverage-text-delay': `${230 + index * 130}ms` }}
               >
                 {paragraph}
               </p>

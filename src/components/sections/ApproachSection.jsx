@@ -1,5 +1,6 @@
-import React from 'react';
-import { Section } from '../layout/Section';
+import React, { useLayoutEffect, useRef } from 'react';
+import '../layout/Section.css';
+import '../ui/SectionTitle.css';
 import './ApproachSection.css';
 
 function getStepNumber(title, fallbackIndex) {
@@ -17,8 +18,33 @@ function removeStepPrefix(title) {
 }
 
 export function ApproachSection({ approach }) {
+  const sectionRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const section = sectionRef.current;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+        !('IntersectionObserver' in window)) {
+      section.classList.add('is-visible');
+      return;
+    }
+
+    section.classList.add('approach-ready');
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        section.classList.add('is-visible');
+        observer.unobserve(section);
+      }
+    }, { threshold: 0.01, rootMargin: '0px 0px -15% 0px' });
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <Section id="approach" title={approach.title} className="approach-section">
+    <section id="approach" ref={sectionRef} className="section approach-section">
+      <div className="container">
+        <div className="section-heading">
+          <h2 className="approach-enter approach-enter-title">{approach.title}</h2>
+        </div>
       <div className="approach-grid">
         {approach.steps.map((step, index) => {
           const stepNumber = getStepNumber(step.title, index);
@@ -27,10 +53,8 @@ export function ApproachSection({ approach }) {
           return (
             <article
               key={step.title}
-              className={`approach-card reveal ${index % 2 ? 'approach-card-offset' : ''}`.trim()}
-              data-reveal="card"
-              data-reveal-group="approach-cards"
-              style={{ '--reveal-delay': '100ms', '--reveal-step': '120ms' }}
+              className={`approach-card approach-enter ${index % 2 ? 'approach-card-offset' : ''}`.trim()}
+              style={{ '--approach-delay': `${150 + index * 130}ms` }}
             >
               <div className="approach-card-glow" aria-hidden="true" />
               <div className="approach-card-header">
@@ -43,6 +67,7 @@ export function ApproachSection({ approach }) {
           );
         })}
       </div>
-    </Section>
+      </div>
+    </section>
   );
 }

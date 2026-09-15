@@ -1,5 +1,5 @@
 .hero {
-  --hero-image: url('../assets/images/gallery2.jpg');
+  --hero-image: url('../assets/images/gallery2.webp');
   position: relative;
   padding: clamp(5.4rem, 9vw, 7.4rem) 0;
   min-height: min(900px, 94vh);
@@ -22,8 +22,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transform: scale(1.01);
-  animation: heroImageZoom 1.2s ease-out both;
+  animation: heroImageZoom 1.6s cubic-bezier(0.22, 1, 0.36, 1) backwards;
 }
 
 .hero::after {
@@ -86,52 +85,46 @@
   margin-top: 2.3rem;
 }
 
-/* safer staged animation */
+/* Backwards fill hides delayed elements, then releases transform for button hover.
+   These mount-time animations are independent of scroll/reveal observers. */
 .hero-animate {
-  opacity: 1;
-  transform: translateY(0);
-  animation: heroFadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
-  will-change: transform, opacity;
+  --hero-enter-distance: 30px;
+  animation: heroFadeUp 800ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
 }
 
-.hero-animate-1 {
-  animation-delay: 0.08s;
-}
-
-.hero-animate-2 {
-  animation-delay: 0.16s;
-}
-
+.hero-animate-1 { animation-delay: 80ms; }
+.hero-animate-2 { animation-delay: 220ms; }
 .hero-animate-3 {
-  animation-delay: 0.24s;
+  --hero-enter-distance: 35px;
+  animation-delay: 360ms;
+  animation-duration: 900ms;
 }
+.hero-animate-4 { animation-delay: 500ms; }
+.hero-animate-5 { animation-delay: 640ms; }
+.hero-animate-6 { animation-delay: 780ms; }
 
-.hero-animate-4 {
-  animation-delay: 0.32s;
-}
-
-.hero-animate-5 {
-  animation-delay: 0.4s;
+.hero-cta .hero-animate {
+  --hero-enter-distance: 25px;
 }
 
 @keyframes heroFadeUp {
-  0% {
-    opacity: 0.01;
-    transform: translateY(18px);
+  from {
+    opacity: 0;
+    transform: translateY(var(--hero-enter-distance));
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
 @keyframes heroImageZoom {
-  0% {
-    transform: scale(1.04);
-    opacity: 0.88;
+  from {
+    transform: scale(1.02);
+    opacity: 0.85;
   }
-  100% {
-    transform: scale(1.01);
+  to {
+    transform: scale(1);
     opacity: 1;
   }
 }
@@ -252,6 +245,10 @@
   .hero-animate {
     opacity: 1;
     transform: none;
-    filter: none;
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    --hero-image: url('../assets/images/gallery2-1600.webp');
   }
 }

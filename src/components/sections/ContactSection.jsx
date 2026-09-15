@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import "./ContactSection.css";
+import { trackEvent, trackContactFormStarted } from "../../firebase/analytics";
 
 // Keep the reveal guard across component remounts until the page is reloaded.
 let phoneRevealedThisPage = false;
@@ -42,6 +43,7 @@ export function ContactSection({ contact, lang = "pl" }) {
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(() => {
+        trackEvent("contact_form_submitted");
         setStatus("success");
         e.target.reset();
       })
@@ -69,12 +71,23 @@ export function ContactSection({ contact, lang = "pl" }) {
 
           <p className="contact-note reveal" data-reveal="text" style={{ "--reveal-order": 3 }}>
             E-mail:{" "}
-            <a href="mailto:luxmikrocement@gmail.com" className="contact-link">
+            <a onClick={() => trackEvent("email_clicked")} href="mailto:luxmikrocement@gmail.com" className="contact-link">
               luxmikrocement@gmail.com
             </a>
             <br />
+            Facebook:{" "}
+            <a
+              onClick={() => trackEvent("facebook_clicked")}
+              href="https://www.facebook.com/profile.php?id=61590254800791&locale=ru_RU"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-link contact-facebook-link"
+            >
+              Lux Mikrocement
+            </a>
+            <br />
             {isPhoneVisible ? (
-              <a href="tel:+48793320679" className="contact-phone contact-phone-number">
+              <a onClick={() => trackEvent("phone_clicked")} href="tel:+48793320679" className="contact-phone contact-phone-number">
                 +48 793 320 679
               </a>
             ) : (
@@ -85,7 +98,7 @@ export function ContactSection({ contact, lang = "pl" }) {
           </p>
         </div>
 
-        <form className="contact-form" onSubmit={sendEmail}>
+        <form className="contact-form" onSubmit={sendEmail} onFocusCapture={trackContactFormStarted} onChange={trackContactFormStarted}>
           <label
             htmlFor="contact-name"
             className="reveal"

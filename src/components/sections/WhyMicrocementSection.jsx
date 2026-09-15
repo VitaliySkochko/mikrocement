@@ -1,5 +1,6 @@
-import React from 'react';
-import { Section } from '../layout/Section';
+import React, { useLayoutEffect, useRef } from 'react';
+import '../layout/Section.css';
+import '../ui/SectionTitle.css';
 import './WhyMicrocementSection.css';
 
 const icons = [
@@ -30,47 +31,64 @@ const icons = [
 ];
 
 export function WhyMicrocementSection({ why }) {
+  const sectionRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const section = sectionRef.current;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reducedMotion.matches || !('IntersectionObserver' in window)) {
+      section.classList.add('is-visible');
+      return;
+    }
+
+    section.classList.add('why-ready');
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        section.classList.add('is-visible');
+        observer.unobserve(section);
+      }
+    }, { threshold: 0.01, rootMargin: '0px 0px -15% 0px' });
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <Section
+    <section
       id="why"
-      title={why?.title || ''}
-      intro={why?.intro || ''}
-      className="why-microcement"
+      ref={sectionRef}
+      className="section why-microcement"
     >
+      <div className="container">
+        <div className="section-heading">
+          <h2 className="why-enter why-enter-title">{why?.title || ''}</h2>
+          {why?.intro ? <p className="section-intro why-enter why-enter-intro">{why.intro}</p> : null}
+        </div>
       <div className="why-microcement-grid" role="list">
         {(why?.items || []).map((item, index) => (
           <article
             key={item.title || index}
-            className="why-microcement-card"
+            className="why-microcement-card why-enter"
+            style={{ '--why-delay': `${300 + index * 140}ms` }}
             role="listitem"
           >
             <span
-              className="why-microcement-icon reveal"
+              className="why-microcement-icon"
               aria-hidden="true"
-              data-reveal="card"
-              style={{ '--reveal-order': index }}
             >
               {icons[index % icons.length]}
             </span>
 
-            <h3
-              className="reveal"
-              data-reveal="heading"
-              style={{ '--reveal-order': index }}
-            >
+            <h3>
               {item.title}
             </h3>
 
-            <p
-              className="reveal"
-              data-reveal="text"
-              style={{ '--reveal-order': index }}
-            >
+            <p>
               {item.text}
             </p>
           </article>
         ))}
       </div>
-    </Section>
+      </div>
+    </section>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { trackEvent } from '../../firebase/analytics';
 import { Button } from '../ui/Button';
 import './HeroSection.css';
 
@@ -23,19 +24,27 @@ export function HeroSection({ hero, onNavClick }) {
             {hero.subtitle}
           </p>
 
-          <div className="hero-cta hero-animate hero-animate-5">
+          <div className="hero-cta">
             <Button
               variant="primary"
+              className="hero-animate hero-animate-5"
               href="#contact"
-              onClick={(event) => onNavClick(event, 'contact')}
+              onClick={(event) => {
+                trackEvent('consultation_clicked');
+                onNavClick(event, 'contact');
+              }}
             >
               {hero.primaryCta}
             </Button>
 
             <Button
               variant="ghost"
+              className="hero-animate hero-animate-6"
               href="#services"
-              onClick={(event) => onNavClick(event, 'services')}
+              onClick={(event) => {
+                trackEvent('services_clicked');
+                onNavClick(event, 'services');
+              }}
             >
               {hero.secondaryCta}
             </Button>
