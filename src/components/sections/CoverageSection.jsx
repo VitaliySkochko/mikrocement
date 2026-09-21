@@ -1,13 +1,15 @@
 import React from 'react';
 import { Section } from '../layout/Section';
-import { galleryImages } from '../assets/images/responsive';
+import image01 from '../assets/images/01.webp';
+import image02 from '../assets/images/02.webp';
+import image03 from '../assets/images/03.webp';
 import './CoverageSection.css';
 
 export function CoverageSection({ coverage }) {
   const images = [
-    { ...galleryImages.gallery2, alt: 'Microcement interior living room' },
-    { ...galleryImages.gallery6, alt: 'Modern microcement floor interior' },
-    { ...galleryImages.gallery7, alt: 'Luxury microcement wall and floor finish' }
+    { src: image01, width: 1440, height: 810, alt: 'Kuchnia i jadalnia z podłogą i ścianami z mikrocementu' },
+    { src: image02, width: 1440, height: 810, alt: 'Sypialnia ze ścianą i podłogą z mikrocementu' },
+    { src: image03, width: 1440, height: 810, alt: 'Salon z mikrocementem na ścianach i podłodze' }
   ];
 
   const paragraphs = Array.isArray(coverage?.paragraphs)
@@ -29,8 +31,6 @@ export function CoverageSection({ coverage }) {
             >
               <img
                 src={image.src}
-                srcSet={image.srcSet}
-                sizes="(max-width: 640px) 94vw, (max-width: 980px) 720px, 280px"
                 width={image.width}
                 height={image.height}
                 alt={image.alt}
