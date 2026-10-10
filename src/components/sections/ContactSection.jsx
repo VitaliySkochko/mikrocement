@@ -85,11 +85,19 @@ export function ContactSection({ contact, lang = "pl" }) {
             >
               Lux Mikrocement
             </a>
-            <br />
+            <span className="contact-company">
+              <span className="contact-company-name">MICROLUX Roman Chyliński</span>
+              <span className="contact-company-nip">NIP: 7391212476</span>
+            </span>
             {isPhoneVisible ? (
+              <span className="contact-phone-list">
               <a onClick={() => trackEvent("phone_clicked")} href="tel:+48793320679" className="contact-phone contact-phone-number">
                 +48 793 320 679
               </a>
+              <a onClick={() => trackEvent("phone_clicked")} href="tel:+48505143028" className="contact-phone contact-phone-number">
+                +48 505 143 028
+              </a>
+              </span>
             ) : (
               <button type="button" className="btn btn-primary contact-phone contact-phone-reveal" onClick={revealPhone}>
                 Pokaż numer telefonu

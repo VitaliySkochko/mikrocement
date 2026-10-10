@@ -49,7 +49,6 @@
   display: block;
   margin: auto;
   backface-visibility: hidden;
-  transform: scale(1.01);
 }
 
 .gallery-overlay {

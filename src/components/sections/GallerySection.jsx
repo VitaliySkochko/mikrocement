@@ -5,7 +5,14 @@ import { Gallery } from './gallery/Gallery';
 
 import './GallerySection.css';
 
-const galleryModules = import.meta.glob('../assets/img/*', {
+const galleryModules = import.meta.glob([
+  '../assets/img/*',
+  // Keep the PNG originals as sources; load only their optimized WebP versions.
+  '!../assets/img/IMG_6269.PNG',
+  '!../assets/img/IMG_6270.PNG',
+  '!../assets/img/IMG_6274.PNG',
+  '!../assets/img/IMG_6275.PNG',
+], {
   eager: true,
   import: 'default',
   query: '?url',
