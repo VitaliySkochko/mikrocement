@@ -9,7 +9,7 @@ export function HeroSection({ hero, onNavClick }) {
       <div className="container hero-shell">
         <div className="hero-copy">
           <p className="hero-label hero-animate hero-animate-1">
-            Architectural Surface Atelier
+            {hero.label}
           </p>
 
           <p className="badge hero-animate hero-animate-2">

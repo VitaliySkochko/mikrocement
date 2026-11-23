@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { trackEvent } from '../../../firebase/analytics';
 import './Gallery.css';
 
-export function Gallery({ items = [] }) {
+export function Gallery({ items = [], labels }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const galleryRef = useRef(null);
   const totalItems = items.length;
@@ -95,7 +95,7 @@ export function Gallery({ items = [] }) {
           type="button"
           className="gallery-control gallery-control-prev"
           onClick={handlePrev}
-          aria-label="Poprzednie zdjęcie"
+          aria-label={labels.previous}
         >
           <span>‹</span>
         </button>
@@ -104,7 +104,7 @@ export function Gallery({ items = [] }) {
           type="button"
           className="gallery-control gallery-control-next"
           onClick={handleNext}
-          aria-label="Następne zdjęcie"
+          aria-label={labels.next}
         >
           <span>›</span>
         </button>
@@ -115,7 +115,7 @@ export function Gallery({ items = [] }) {
           <span style={{ width: `${progress}%` }} />
         </div>
 
-        <div className="gallery-dots" role="tablist" aria-label="Gallery navigation">
+        <div className="gallery-dots" role="tablist" aria-label={labels.navigation}>
           {items.map((item, index) => (
             <button
               key={item.title}
@@ -123,7 +123,7 @@ export function Gallery({ items = [] }) {
               role="tab"
               className={`gallery-dot ${index === activeIndex ? 'is-active' : ''}`}
               aria-selected={index === activeIndex}
-              aria-label={`Przejdź do zdjęcia ${index + 1}`}
+              aria-label={`${labels.goTo} ${index + 1}`}
               onClick={() => goToSlide(index)}
             />
           ))}

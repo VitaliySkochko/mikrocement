@@ -40,7 +40,7 @@ export function ApproachSection({ approach }) {
   }, []);
 
   return (
-    <section id="approach" ref={sectionRef} className="section approach-section">
+    <section id="approach" ref={sectionRef} className="section approach-section microcement-surface">
       <div className="container">
         <div className="section-heading">
           <h2 className="approach-enter approach-enter-title">{approach.title}</h2>

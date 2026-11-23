@@ -53,7 +53,7 @@ export function Header({
         <button
           type="button"
           className={`mobile-menu-toggle ${isMobileMenuOpen ? 'active' : ''}`}
-          aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-label={isMobileMenuOpen ? labels.menu.close : labels.menu.open}
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-menu"
           onClick={onToggleMenu}

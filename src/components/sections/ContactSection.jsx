@@ -1,64 +1,30 @@
-import React, { useState } from "react";
-import emailjs from "@emailjs/browser";
+import React, { useRef } from "react";
 import "./ContactSection.css";
-import { trackEvent, trackContactFormStarted } from "../../firebase/analytics";
+import { trackEvent } from "../../firebase/analytics";
 
-// Keep the reveal guard across component remounts until the page is reloaded.
-let phoneRevealedThisPage = false;
+import { CallbackForm } from "./CallbackForm";
+import firLeft from "../assets/contact/fir-left.webp";
+import firRight from "../assets/contact/fir-right.webp";
+import firBow from "../assets/contact/fir-bow.webp";
+import champagneGifts from "../assets/contact/champagne-gifts.webp";
 
-export function ContactSection({ contact, lang = "pl" }) {
-  const [status, setStatus] = useState(null);
-  const [isPhoneVisible, setIsPhoneVisible] = useState(phoneRevealedThisPage);
-
-  const revealPhone = () => {
-    setIsPhoneVisible(true);
-    if (phoneRevealedThisPage) return;
-    phoneRevealedThisPage = true;
-
-    if (typeof window.fbq === 'function') {
-      window.fbq('track', 'Lead');
-    }
-  };
-
-  const messages = {
-    success: {
-      pl: "Dziękujemy! Skontaktujemy się z Tobą w ciągu 24 godzin.",
-      en: "Thank you! We will contact you within 24 hours.",
-    },
-    error: {
-      pl: "Wystąpił błąd. Spróbuj ponownie.",
-      en: "Something went wrong. Please try again.",
-    },
-  };
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-    setStatus(null);
-
-    emailjs
-      .sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        e.target,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      )
-      .then(() => {
-        trackEvent("contact_form_submitted");
-        setStatus("success");
-        e.target.reset();
-      })
-      .catch((error) => {
-        console.error("EmailJS error:", error);
-        setStatus("error");
-      });
-  };
+export function ContactSection({ contact, lang }) {
+  const sectionRef = useRef(null);
 
   return (
-    <section id="contact" className="section section-highlight">
+    <section ref={sectionRef} id="contact" className="section section-highlight microcement-surface">
+      <div className="contact-holiday-corners reveal" data-reveal="holiday" aria-hidden="true">
+        <img src={firLeft} alt="" width="440" height="406" loading="lazy" decoding="async" />
+        <img src={firRight} alt="" width="440" height="391" loading="lazy" decoding="async" />
+        <span className="contact-holiday-light" />
+      </div>
       <div className="container contact-wrap">
         <div className="contact-copy">
+          <div className="contact-holiday-heading reveal" data-reveal="holiday" aria-hidden="true">
+            <img src={firBow} alt="" width="280" height="110" loading="lazy" decoding="async" />
+          </div>
           <p className="hero-label reveal" data-reveal="text">
-            Private Design Consultation
+            {contact.label}
           </p>
 
           <h2 className="reveal" data-reveal="heading" style={{ "--reveal-order": 1 }}>
@@ -70,7 +36,7 @@ export function ContactSection({ contact, lang = "pl" }) {
           </p>
 
           <p className="contact-note reveal" data-reveal="text" style={{ "--reveal-order": 3 }}>
-            E-mail:{" "}
+            {contact.email}:{" "}
             <a onClick={() => trackEvent("email_clicked")} href="mailto:luxmikrocement@gmail.com" className="contact-link">
               luxmikrocement@gmail.com
             </a>
@@ -89,125 +55,21 @@ export function ContactSection({ contact, lang = "pl" }) {
               <span className="contact-company-name">MICROLUX Roman Chyliński</span>
               <span className="contact-company-nip">NIP: 7391212476</span>
             </span>
-            {isPhoneVisible ? (
-              <span className="contact-phone-list">
-              <a onClick={() => trackEvent("phone_clicked")} href="tel:+48793320679" className="contact-phone contact-phone-number">
-                +48 793 320 679
-              </a>
-              <a onClick={() => trackEvent("phone_clicked")} href="tel:+48505143028" className="contact-phone contact-phone-number">
-                +48 505 143 028
-              </a>
-              </span>
-            ) : (
-              <button type="button" className="btn btn-primary contact-phone contact-phone-reveal" onClick={revealPhone}>
-                Pokaż numer telefonu
-              </button>
-            )}
+
           </p>
         </div>
 
-        <form className="contact-form" onSubmit={sendEmail} onFocusCapture={trackContactFormStarted} onChange={trackContactFormStarted}>
-          <label
-            htmlFor="contact-name"
-            className="reveal"
-            data-reveal="text"
-            style={{ "--reveal-order": 0 }}
-          >
-            Name
-          </label>
-          <input
-            id="contact-name"
-            name="name"
-            type="text"
-            placeholder="Your full name"
-            autoComplete="name"
-            required
-            className="reveal"
-            data-reveal="cta"
-            style={{ "--reveal-order": 1 }}
-          />
-
-          <label
-            htmlFor="contact-phone"
-            className="reveal"
-            data-reveal="text"
-            style={{ "--reveal-order": 2 }}
-          >
-            Phone
-          </label>
-          <input
-            id="contact-phone"
-            name="phone"
-            type="tel"
-            placeholder="+48 000 000 000"
-            autoComplete="tel"
-            required
-            className="reveal"
-            data-reveal="cta"
-            style={{ "--reveal-order": 3 }}
-          />
-
-          <label
-            htmlFor="contact-email"
-            className="reveal"
-            data-reveal="text"
-            style={{ "--reveal-order": 4 }}
-          >
-            Email
-          </label>
-          <input
-            id="contact-email"
-            name="email"
-            type="email"
-            placeholder="you@example.com"
-            autoComplete="email"
-            required
-            className="reveal"
-            data-reveal="cta"
-            style={{ "--reveal-order": 5 }}
-          />
-
-          <label
-            htmlFor="contact-message"
-            className="reveal"
-            data-reveal="text"
-            style={{ "--reveal-order": 6 }}
-          >
-            Message
-          </label>
-          <textarea
-            id="contact-message"
-            name="message"
-            rows="5"
-            placeholder="Tell us about your project..."
-            autoComplete="off"
-            required
-            className="reveal"
-            data-reveal="cta"
-            style={{ "--reveal-order": 7 }}
-          />
-
-          <button
-            type="submit"
-            className="btn btn-primary reveal"
-            data-reveal="cta"
-            style={{ "--reveal-order": 8 }}
-          >
-            Request a Quote
-          </button>
-
-          {status === "success" && (
-            <div className="form-message success">
-              {messages.success[lang] || messages.success.pl}
-            </div>
-          )}
-
-          {status === "error" && (
-            <div className="form-message error">
-              {messages.error[lang] || messages.error.pl}
-            </div>
-          )}
-        </form>
+        <div className="contact-form-area">
+          <div className="contact-holiday-form reveal" data-reveal="holiday" aria-hidden="true">
+            <img src={firBow} alt="" width="280" height="110" loading="lazy" decoding="async" />
+            <span className="contact-holiday-star" />
+            <span className="contact-holiday-star" />
+          </div>
+          <CallbackForm labels={contact.callback} lang={lang} sectionRef={sectionRef} />
+          <div className="contact-holiday-gifts reveal" data-reveal="holiday" aria-hidden="true">
+            <img src={champagneGifts} alt="" width="320" height="171" loading="lazy" decoding="async" />
+          </div>
+        </div>
       </div>
     </section>
   );

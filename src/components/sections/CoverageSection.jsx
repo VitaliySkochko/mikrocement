@@ -33,7 +33,7 @@ export function CoverageSection({ coverage }) {
                 src={image.src}
                 width={image.width}
                 height={image.height}
-                alt={image.alt}
+                alt={coverage.imageAlts[index]}
                 loading="lazy"
                 decoding="async"
               />

@@ -1,0 +1,10 @@
+.microcement-surface {
+  --microcement-surface:
+    radial-gradient(ellipse at 14% 100%, #b5ada15c, transparent 56%),
+    radial-gradient(ellipse at 64% -20%, #f1ebe0a8, transparent 65%),
+    radial-gradient(ellipse at 82% 90%, #9f928075, transparent 58%),
+    radial-gradient(ellipse at 35% 46%, #f3eee35c, transparent 53%),
+    repeating-linear-gradient(168deg, transparent 0 5px, #7265540b 8px, transparent 14px 25px),
+    #d1cac0;
+  background: var(--microcement-surface);
+}

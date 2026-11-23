@@ -6,6 +6,7 @@ import AdminLogin from "./pages/AdminLogin";
 import AdminPanel from "./pages/AdminPanel";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import "./styles/main.css";
+import "./styles/microcement.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

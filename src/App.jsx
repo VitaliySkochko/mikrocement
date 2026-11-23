@@ -17,7 +17,14 @@ import { translations } from './i18n/translations';
 export default function App() {
   useEffect(() => { trackPageView(); }, []);
 
-  const [lang, setLang] = useState('pl');
+  const [lang, setLang] = useState(() => {
+    try {
+      const saved = localStorage.getItem('lux-language');
+      return ['pl', 'en', 'uk', 'ru'].includes(saved) ? saved : 'pl';
+    } catch {
+      return 'pl';
+    }
+  });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
@@ -38,6 +45,7 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.lang = lang;
+    try { localStorage.setItem('lux-language', lang); } catch { /* Storage may be disabled. */ }
   }, [lang]);
 
   useEffect(() => {
@@ -111,7 +119,7 @@ export default function App() {
         <ApproachSection approach={t.approach} />
         <ServicesSection services={t.services} />
         <CoverageSection coverage={t.coverage} />
-        <ContactSection contact={t.contact} />
+        <ContactSection contact={t.contact} lang={lang} />
       </main>
 
       <Footer text={t.footer} />

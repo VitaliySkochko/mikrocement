@@ -10,7 +10,7 @@ export function MobileMenu({ isOpen, navItems, activeSection, onNavClick, onClos
       className={`mobile-menu ${isOpen ? 'open' : ''}`}
       role="dialog"
       aria-modal="true"
-      aria-label="Mobile navigation"
+      aria-label={labels.menu.navigation}
     >
       <div className="mobile-menu-header container">
         <div className="mobile-brand">
@@ -22,7 +22,7 @@ export function MobileMenu({ isOpen, navItems, activeSection, onNavClick, onClos
     className="mobile-brand-logo"
   />
 </div>
-        <button type="button" className="mobile-menu-close" onClick={onClose} aria-label="Close menu">
+        <button type="button" className="mobile-menu-close" onClick={onClose} aria-label={labels.menu.close}>
           ×
         </button>
       </div>

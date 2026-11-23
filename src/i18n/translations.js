@@ -1,4 +1,106 @@
 export const translations = {
+  ru: {
+    languageName: 'RU',
+    switchLabel: 'Язык',
+    nav: { hero: 'Главная', why: 'Преимущества', gallery: 'Галерея', approach: 'Наш подход', services: 'Услуги', coverage: 'О материале', contact: 'Контакты' },
+    hero: {
+      badge: 'Премиальная отделка интерьеров', title: 'LUX MIKROCEMENT',
+      subtitle: 'Бесшовные, элегантные поверхности из микроцемента в Варшаве и по всей Польше — для изысканных домов, бутик-отелей и престижных коммерческих интерьеров.',
+      primaryCta: 'Заказать консультацию', secondaryCta: 'Посмотреть услуги'
+    },
+    why: {
+      title: 'Микроцемент в Варшаве и Польше — почему стоит выбрать',
+      intro: 'Микроцемент — современная минималистичная отделка, сочетающая эстетику, прочность и свободу дизайна.',
+      items: [
+        { title: 'Бесшовная элегантность', text: 'Цельные поверхности без швов создают спокойный и изысканный характер интерьера.' },
+        { title: 'Высокая прочность', text: 'Многослойное покрытие устойчиво к повседневному использованию, влаге и перепадам температуры.' },
+        { title: 'Свобода дизайна', text: 'Идеальное решение для стен, полов, ванных комнат, лестниц и индивидуальных элементов в тщательно подобранных оттенках.' }
+      ]
+    },
+    services: {
+      title: 'Микроцемент для пола, стен и ванной комнаты — услуги',
+      items: [
+        { title: 'Микроцемент для пола и стен', text: 'Премиальная бесшовная отделка пола и стен, согласованная с архитектурой, освещением и характером интерьера.' },
+        { title: 'Микроцемент для ванных комнат и влажных зон', text: 'Специализированные системы для ванных комнат и зон с повышенной влажностью, сочетающие элегантную фактуру и надёжность в повседневном использовании.' },
+        { title: 'Лестницы и элементы на заказ', text: 'Мастерское ручное нанесение на лестницы, ниши и индивидуальные детали, где важны цельность и точность.' },
+        { title: 'Коммерческие и гостиничные интерьеры', text: 'Долговечные дизайнерские решения из микроцемента для бутик-отелей, шоурумов и престижных коммерческих пространств.' },
+        { title: 'Консультации по дизайну и подбор образцов', text: 'Помогаем подобрать оттенки, фактуры и образцы, чтобы согласовать эстетику и функциональность ещё до начала работ.' }
+      ]
+    },
+    approach: {
+      title: 'Наш подход',
+      steps: [
+        { title: '1. Консультация', text: 'Определяем объём работ, стиль и технические требования для вашего пространства.' },
+        { title: '2. Подготовка основания', text: 'Тщательно грунтуем и укрепляем основание, чтобы обеспечить долговечность покрытия.' },
+        { title: '3. Мастерское нанесение', text: 'Вручную наносим последовательные слои, создавая фактуру, глубину и характер поверхности.' },
+        { title: '4. Защита и сдача работ', text: 'Наносим премиальные защитные покрытия и предоставляем рекомендации по уходу на долгие годы.' }
+      ]
+    },
+    gallery: { title: 'Галерея проектов', intro: null },
+    coverage: {
+      title: 'Что такое микроцемент?',
+      paragraphs: [
+        'Микроцемент — современное декоративное покрытие для интерьеров. Он образует цельные поверхности без швов, благодаря чему пространство выглядит элегантно, минималистично и современно.',
+        'В отличие от традиционной плитки или камня, микроцемент образует непрерывный слой, который можно наносить на пол, стены, в ванных комнатах, на лестницах и элементах, изготовленных на заказ. Это позволяет сохранить единый стиль во всём интерьере.',
+        'Одно из главных преимуществ микроцемента — его долговечность. Профессиональные системы устойчивы к истиранию, влаге и перепадам температуры, поэтому прекрасно подходят как для частных домов, так и для коммерческих пространств.',
+        'Микроцемент также открывает широкие возможности для дизайна. Разнообразие цветов и фактур позволяет создавать как сдержанные природные поверхности, так и выразительные архитектурные решения, сохраняя простоту ухода.'
+      ]
+    },
+    contact: { title: 'Создадим нечто исключительное', text: 'Расскажите о своём проекте и получите индивидуальную рекомендацию.' },
+    footer: '© LUX MIKROCEMENT. Премиальная отделка микроцементом в Польше.'
+  },
+  uk: {
+    languageName: 'UA',
+    switchLabel: 'Мова',
+    nav: { hero: 'Головна', why: 'Переваги', gallery: 'Галерея', approach: 'Наш підхід', services: 'Послуги', coverage: 'Про матеріал', contact: 'Контакти' },
+    hero: {
+      label: 'Майстерня архітектурних поверхонь',
+      badge: 'Преміальне оздоблення інтер’єрів',
+      title: 'LUX MIKROCEMENT',
+      subtitle: 'Безшовні, елегантні поверхні з мікроцементу у Варшаві та по всій Польщі — для вишуканих осель, бутик-готелів і престижних комерційних інтер’єрів.',
+      primaryCta: 'Замовити консультацію', secondaryCta: 'Переглянути послуги'
+    },
+    why: {
+      title: 'Мікроцемент у Варшаві та Польщі — чому варто обрати',
+      intro: 'Мікроцемент — сучасне мінімалістичне оздоблення, що поєднує естетику, міцність і свободу дизайну.',
+      items: [
+        { title: 'Безшовна елегантність', text: 'Суцільні поверхні без швів створюють спокійний і вишуканий характер інтер’єру.' },
+        { title: 'Висока міцність', text: 'Багатошарове покриття стійке до щоденного використання, вологи та перепадів температури.' },
+        { title: 'Свобода дизайну', text: 'Ідеальне рішення для стін, підлог, ванних кімнат, сходів та індивідуальних елементів у ретельно підібраних відтінках.' }
+      ]
+    },
+    services: {
+      title: 'Мікроцемент для підлоги, стін і ванної кімнати — послуги',
+      items: [
+        { title: 'Мікроцемент для підлоги та стін', text: 'Преміальне безшовне оздоблення підлоги та стін, узгоджене з архітектурою, освітленням і характером інтер’єру.' },
+        { title: 'Мікроцемент для ванних кімнат і вологих зон', text: 'Спеціалізовані системи для ванних кімнат і зон із підвищеною вологістю, що поєднують елегантну фактуру та надійність у щоденному використанні.' },
+        { title: 'Сходи та елементи на замовлення', text: 'Майстерне ручне нанесення на сходи, ніші та індивідуальні деталі, де важливі цілісність і точність.' },
+        { title: 'Комерційні та готельні інтер’єри', text: 'Довговічні дизайнерські рішення з мікроцементу для бутик-готелів, шоурумів і престижних комерційних просторів.' },
+        { title: 'Консультації з дизайну та підбір зразків', text: 'Допомагаємо підібрати відтінки, фактури та зразки, щоб узгодити естетику й функціональність ще до початку робіт.' }
+      ]
+    },
+    approach: {
+      title: 'Наш підхід',
+      steps: [
+        { title: '1. Консультація', text: 'Визначаємо обсяг робіт, стиль і технічні вимоги для вашого простору.' },
+        { title: '2. Підготовка основи', text: 'Ретельно ґрунтуємо та зміцнюємо основу, щоб забезпечити довговічність покриття.' },
+        { title: '3. Майстерне нанесення', text: 'Вручну наносимо послідовні шари, створюючи фактуру, глибину та характер поверхні.' },
+        { title: '4. Захист і здача робіт', text: 'Наносимо преміальні захисні покриття та надаємо рекомендації з догляду на роки.' }
+      ]
+    },
+    gallery: { title: 'Галерея реалізацій', intro: null },
+    coverage: {
+      title: 'Що таке мікроцемент?',
+      paragraphs: [
+        'Мікроцемент — сучасне декоративне покриття для інтер’єрів. Він утворює суцільні поверхні без швів, завдяки чому простір виглядає елегантно, мінімалістично й сучасно.',
+        'На відміну від традиційної плитки чи каменю, мікроцемент утворює безперервний шар, який можна наносити на підлогу, стіни, у ванних кімнатах, на сходах та елементах, виготовлених на замовлення. Це дає змогу зберегти єдиний стиль у всьому інтер’єрі.',
+        'Одна з головних переваг мікроцементу — його довговічність. Професійні системи стійкі до стирання, вологи та перепадів температури, тому чудово підходять як для приватних осель, так і для комерційних просторів.',
+        'Мікроцемент також відкриває широкі можливості для дизайну. Різноманіття кольорів і фактур дає змогу створювати як делікатні природні поверхні, так і виразні архітектурні рішення, зберігаючи простоту догляду.'
+      ]
+    },
+    contact: { title: 'Створімо щось виняткове', text: 'Розкажіть про свій проєкт і отримайте індивідуальну рекомендацію.' },
+    footer: '© LUX MIKROCEMENT. Преміальне оздоблення мікроцементом у Польщі.'
+  },
   en: {
     languageName: 'EN',
     switchLabel: 'Language',
@@ -342,3 +444,50 @@ export const translations = {
     footer: '© LUX MIKROCEMENT. Premium wykończenia mikrocementowe w Polsce.'
   }
 };
+
+const interfaceText = {
+  ru: {
+    menu: { open: 'Открыть меню', close: 'Закрыть меню', navigation: 'Мобильная навигация' },
+    heroLabel: 'Мастерская архитектурных поверхностей',
+    gallery: { previous: 'Предыдущее фото', next: 'Следующее фото', navigation: 'Навигация по галерее', goTo: 'Перейти к фото', imageLabel: 'Проект с микроцементом Lux Mikrocement' },
+    imageAlts: ['Кухня и столовая с полом и стенами из микроцемента', 'Спальня со стеной и полом из микроцемента', 'Гостиная с микроцементом на стенах и полу'],
+    contact: { label: 'Индивидуальная консультация по дизайну', email: 'Электронная почта', name: 'Имя и фамилия', phone: 'Телефон', message: 'Сообщение', namePlaceholder: 'Ваше имя и фамилия', messagePlaceholder: 'Расскажите о своём проекте...', revealPhone: 'Показать номера телефонов', submit: 'Получить смету', success: 'Спасибо! Мы свяжемся с вами в течение 24 часов.', error: 'Произошла ошибка. Попробуйте ещё раз.' }
+  },
+  pl: {
+    menu: { open: 'Otwórz menu', close: 'Zamknij menu', navigation: 'Nawigacja mobilna' },
+    heroLabel: 'Architectural Surface Atelier',
+    gallery: { previous: 'Poprzednie zdjęcie', next: 'Następne zdjęcie', navigation: 'Nawigacja galerii', goTo: 'Przejdź do zdjęcia', imageLabel: 'Realizacja mikrocementu Lux Mikrocement' },
+    imageAlts: ['Kuchnia i jadalnia z podłogą i ścianami z mikrocementu', 'Sypialnia ze ścianą i podłogą z mikrocementu', 'Salon z mikrocementem na ścianach i podłodze'],
+    contact: { label: 'Indywidualna konsultacja projektowa', email: 'E-mail', name: 'Imię i nazwisko', phone: 'Telefon', message: 'Wiadomość', namePlaceholder: 'Twoje imię i nazwisko', messagePlaceholder: 'Opowiedz nam o swoim projekcie...', revealPhone: 'Pokaż numer telefonu', submit: 'Poproś o wycenę', success: 'Dziękujemy! Skontaktujemy się z Tobą w ciągu 24 godzin.', error: 'Wystąpił błąd. Spróbuj ponownie.' }
+  },
+  en: {
+    menu: { open: 'Open navigation menu', close: 'Close navigation menu', navigation: 'Mobile navigation' },
+    heroLabel: 'Architectural Surface Atelier',
+    gallery: { previous: 'Previous image', next: 'Next image', navigation: 'Gallery navigation', goTo: 'Go to image', imageLabel: 'Lux Mikrocement microcement project' },
+    imageAlts: ['Kitchen and dining room with microcement floors and walls', 'Bedroom with a microcement wall and floor', 'Living room with microcement walls and floor'],
+    contact: { label: 'Private Design Consultation', email: 'Email', name: 'Name', phone: 'Phone', message: 'Message', namePlaceholder: 'Your full name', messagePlaceholder: 'Tell us about your project...', revealPhone: 'Show phone number', submit: 'Request a Quote', success: 'Thank you! We will contact you within 24 hours.', error: 'Something went wrong. Please try again.' }
+  },
+  uk: {
+    menu: { open: 'Відкрити меню', close: 'Закрити меню', navigation: 'Мобільна навігація' },
+    heroLabel: 'Майстерня архітектурних поверхонь',
+    gallery: { previous: 'Попереднє фото', next: 'Наступне фото', navigation: 'Навігація галереєю', goTo: 'Перейти до фото', imageLabel: 'Реалізація мікроцементу Lux Mikrocement' },
+    imageAlts: ['Кухня та їдальня з підлогою і стінами з мікроцементу', 'Спальня зі стіною та підлогою з мікроцементу', 'Вітальня з мікроцементом на стінах і підлозі'],
+    contact: { label: 'Індивідуальна консультація з дизайну', email: 'Електронна пошта', name: 'Ім’я та прізвище', phone: 'Телефон', message: 'Повідомлення', namePlaceholder: 'Ваше ім’я та прізвище', messagePlaceholder: 'Розкажіть про свій проєкт...', revealPhone: 'Показати номери телефонів', submit: 'Отримати кошторис', success: 'Дякуємо! Ми зв’яжемося з вами протягом 24 годин.', error: 'Сталася помилка. Спробуйте ще раз.' }
+  }
+};
+
+const callbackText = {
+  pl: { title: 'Zamów rozmowę', text: 'Zostaw swój numer telefonu, a nasz doradca skontaktuje się z Tobą.', phone: 'Numer telefonu', hint: 'Podaj numer z kodem kraju, np. +48 505 000 000.', language: 'Język rozmowy', sending: 'Wysyłanie…', success: 'Dziękujemy! Otrzymaliśmy prośbę o kontakt. Nasz doradca oddzwoni do Ciebie.', error: 'Nie udało się wysłać zgłoszenia. Spróbuj ponownie.', invalidPhone: 'Wpisz numer zaczynający się od + i kodu kraju (7–15 cyfr).' },
+  en: { title: 'Request a callback', text: 'Leave your phone number and our advisor will call you back.', phone: 'Phone number', hint: 'Include the country code, e.g. +48 505 000 000.', language: 'Preferred language', sending: 'Sending…', success: 'Thank you! We received your request. Our advisor will call you back.', error: 'Your request could not be sent. Please try again.', invalidPhone: 'Enter a number starting with + and the country code (7–15 digits).' },
+  uk: { title: 'Замовити дзвінок', text: 'Залиште свій номер телефону, і наш менеджер зв\'яжеться з вами.', phone: 'Номер телефону', hint: 'Вкажіть код країни, наприклад +48 505 000 000.', language: 'Мова спілкування', sending: 'Надсилання…', success: 'Дякуємо! Заявку отримано. Наш менеджер зателефонує вам.', error: 'Не вдалося надіслати заявку. Спробуйте ще раз.', invalidPhone: 'Введіть номер, що починається з + і коду країни (7–15 цифр).' },
+  ru: { title: 'Заказать звонок', text: 'Оставьте свой номер телефона, и наш менеджер свяжется с вами.', phone: 'Номер телефона', hint: 'Укажите код страны, например +48 505 000 000.', language: 'Язык общения', sending: 'Отправка…', success: 'Спасибо! Заявка получена. Наш менеджер вам позвонит.', error: 'Не удалось отправить заявку. Попробуйте ещё раз.', invalidPhone: 'Введите номер, начинающийся с + и кода страны (7–15 цифр).' }
+};
+
+for (const [language, text] of Object.entries(interfaceText)) {
+  translations[language].menu = text.menu;
+  translations[language].hero.label = text.heroLabel;
+  Object.assign(translations[language].gallery, text.gallery);
+  translations[language].coverage.imageAlts = text.imageAlts;
+  Object.assign(translations[language].contact, text.contact);
+  translations[language].contact.callback = callbackText[language];
+}
